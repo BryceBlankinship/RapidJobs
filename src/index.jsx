@@ -2,13 +2,6 @@ import { React, Component } from 'react';
 import ReactDOM from 'react-dom';
 import './auth.css';
 
-class Main extends Component {
-    render() {
-        return (
-            <h1>RapidJobs</h1>
-        );
-    }
-}
 
 function signup() {
     return (

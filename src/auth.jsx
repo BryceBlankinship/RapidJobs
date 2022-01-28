@@ -23,7 +23,7 @@ function signup() {
                     <label className="label">Password</label>
                 </div>
 
-                <h3 id="switchtosignin">Already registered? <a>Sign in here.</a></h3>
+                <h3 id="switchtosignin">Already registered? <a href="/signin">Sign in here.</a></h3>
                 <input type="submit" className="submitBtn" id="signupButton" value="Sign up"></input>
             </form>
         </div>
@@ -46,7 +46,7 @@ function signin() {
                     <label className="label">Password</label>
                 </div>
 
-                <h3 id="switchtosignin">Don't have an account yet? <a>Sign up here.</a></h3>
+                <h3 id="switchtosignin">Don't have an account yet? <a href="/signup">Sign up here.</a></h3>
                 <input type="submit" className="submitBtn" id="signinButton" value="Sign in"></input>
             </form>
         </div>

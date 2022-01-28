@@ -58,7 +58,13 @@ class Auth extends Component {
     constructor(props) {
         super(props);
     }
+
+
+
     render() {
+        <Router>
+        <Route path="/signup" component={signup()}/>
+        </Router>
         if (this.props.signup === "true"){
             return (<div className='ssobody'>{signup()}</div>);
         }else{

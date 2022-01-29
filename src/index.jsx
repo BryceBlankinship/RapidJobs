@@ -5,7 +5,6 @@ import './auth.css';
 import Auth from './auth.jsx';
 
 
-
 ReactDOM.render(
     <BrowserRouter>
         <Auth/>

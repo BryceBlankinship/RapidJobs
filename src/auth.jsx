@@ -67,7 +67,6 @@ class Auth extends Component {
         } else {
             return signin();
         }
-
     }
 }
 

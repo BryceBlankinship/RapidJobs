@@ -1,7 +1,5 @@
 import { React, Component } from 'react';
-import { Routes, Route, Link, BrowserRouter } from 'react-router-dom';
 import './auth.css';
-import Navbar from './index.jsx';
 
 function signup() {
     return (
@@ -56,11 +54,6 @@ function signin() {
 
 
 class Auth extends Component {
-    constructor(props) {
-        super(props);
-    }
-
-
     render() {
         if (this.props.method === "signup") {
             return signup();

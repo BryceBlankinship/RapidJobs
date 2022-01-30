@@ -1,6 +1,7 @@
-import {React} from 'react';
+import { React, Component } from 'react';
 import { Routes, Route, Link, BrowserRouter } from 'react-router-dom';
 import './auth.css';
+import Navbar from './index.jsx';
 
 function signup() {
     return (
@@ -54,16 +55,20 @@ function signin() {
 }
 
 
-function Auth(){
-    return(
-        <div>
-        <h1>Welcome</h1>
-            <Routes>
-                <Route path="/signup" element={signup()}/>
-                <Route path="/signin" element={signin()}/>
-            </Routes>
-        </div>
-    );
+class Auth extends Component {
+    constructor(props) {
+        super(props);
+    }
+
+
+    render() {
+        if (this.props.method === "signup") {
+            return signup();
+        } else {
+            return signin();
+        }
+
+    }
 }
 
 export default Auth;

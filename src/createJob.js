@@ -2,24 +2,33 @@ import { ApolloServer, gql } from "apollo-server-express";
 import express from 'express';
 import mongoose from 'mongoose';
 
-const app = express();
-
-mongoose.connect("mongodb://", { useNewUrlParser: true });
-
-const Cat = mongoose.model("Cat", { name: String });
-
-const kitty = new Cat({ name: "Zildjian "});
-kitty.save().then(() => console.log("meow"));
+const User = mongoose.model("User", { name: String });
 
 const typeDefs = gql`
     type Query {
-        hello: String!
+        users: [User!]!
+    }
+
+    type User{
+        id: ID!
+        name: String!
+    }
+
+    type Mutation{
+        createUser(email: String!, name: String!, password: String!): User!
     }
 `;
 
 const resolvers = {
     Query: {
-        hello: () => "hello"
+        users: () => User.find()
+    },
+    Mutation: {
+        createUser: async (_, {name}) => {
+            const user = new User({ name });
+            await user.save();
+            return user;
+        }
     }
 };
 
@@ -28,11 +37,22 @@ const server = new ApolloServer({
     resolvers
 });
 
-server.start().then(res => {
+const startServer = async () => {
+    const app = express();
+
+    const server = new ApolloServer({
+        typeDefs,
+        resolvers
+    });
+
+    await server.start();
     server.applyMiddleware({ app });
-});
 
-app.listen({ port: 4000 }, () => {
-    console.log("Server ready at http://localhost:4000");
-});
+    await mongoose.connect("mongodb+srv://bryce:Soccer6611like321@rapidjobsserverless.uitzv.mongodb.net/usersDB?retryWrites=true&w=majority", { useNewUrlParser: true });
 
+    app.listen({ port: 4000 }, () => {
+        console.log(`Server started on http://localhost:4000${server.graphqlPath}`);
+    });
+}
+
+startServer();

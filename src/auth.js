@@ -2,7 +2,7 @@ import { ApolloServer, gql } from "apollo-server-express";
 import express from 'express';
 import mongoose from 'mongoose';
 
-const User = mongoose.model("User", { name: String });
+const User = mongoose.model("User", { email: String, name: String, password: String });
 
 const typeDefs = gql`
     type Query {
@@ -10,8 +10,9 @@ const typeDefs = gql`
     }
 
     type User{
-        id: ID!
+        email: String!
         name: String!
+        password: String!
     }
 
     type Mutation{
@@ -24,8 +25,8 @@ const resolvers = {
         users: () => User.find()
     },
     Mutation: {
-        createUser: async (_, {name}) => {
-            const user = new User({ name });
+        createUser: async (_, { email, name, password }) => {
+            const user = new User({ email, name, password });
             await user.save();
             return user;
         }
@@ -48,7 +49,7 @@ const startServer = async () => {
     await server.start();
     server.applyMiddleware({ app });
 
-    await mongoose.connect("mongodb+srv://bryce:Soccer6611like321@rapidjobsserverless.uitzv.mongodb.net/usersDB?retryWrites=true&w=majority", { useNewUrlParser: true });
+    mongoose.connect("mongodb+srv://bryce:Soccer6611like321@rapidjobsserverless.uitzv.mongodb.net/usersDB?retryWrites=true&w=majority", { useNewUrlParser: true });
 
     app.listen({ port: 4000 }, () => {
         console.log(`Server started on http://localhost:4000${server.graphqlPath}`);

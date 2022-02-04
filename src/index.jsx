@@ -4,7 +4,10 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Auth from './auth.jsx';
 import Jobs from './jobs.jsx';
 import Hire from './hire.jsx';
-import Balance from './balance.jsx';
+import Wallet from './wallet.jsx';
+import WalletCard from './cards.jsx';
+import Card from './cards.jsx';
+
 import './jobs.css';
 import './navbar.css';
 
@@ -32,45 +35,11 @@ class Navbar extends Component {
 export default Navbar;
 
 
-function getJobListings(amount) {
-    // Will get job listings from MongoDB database
-    // Will return a specific amount at first but eventually
-    // will constantly return values as the user scrolls until it runs out (hopefully never)
-    return (
-        <div>
-            <div className='job-container'>
-                <h1>Some Sample Data</h1>
-            </div>
-            <div className='job-container'>
-                <h1>More Sample Data</h1>
-            </div>
-            <div className='job-container'>
-                <h1>Even More!</h1>
-            </div>
-            <div className='job-container'>
-                <h1>Ok this is enough</h1>
-            </div>
-            <div className='job-container'>
-                <h1>Pls stop</h1>
-            </div>
-            <div className='job-container'>
-                <h1>The end :)</h1>
-            </div>
-        </div>
-    );
-}
-
 class JobPostings extends Component {
     render() {
         return (
-            <div className='body'>
-                <div className='job-overview'>
-                    <h1>Job Listings</h1>
-                </div>
-
-                <div className='jobs-list'>
-                    {getJobListings()}
-                </div>
+            <div className='jobs-list'>
+                <Card title="Hey There" desc="Not so random description" renderAmount="20"/>
             </div>
         );
     }
@@ -79,13 +48,12 @@ class JobPostings extends Component {
 ReacliOM.render(
     <BrowserRouter>
         <Routes>
-            <Route path="/" element={[<Navbar/>, <JobPostings />]}/>
-            <Route path="/signup" element={[<Navbar/>, <Auth method="signup"/>]}/>
+            <Route path="/" element={[<Navbar highlight="dashboard"/>, <JobPostings/>]}/>
+            <Route path="/signup" element={[<Navbar highlight="signup"/>, <Auth method="signup"/>]}/>
             <Route path="/signin" element={[<Navbar/>, <Auth method="signin"/>]}/> 
             <Route path="/jobs" element={[<Navbar/>, <Jobs/>]}/> 
             <Route path="/hire" element={[<Navbar/>, <Hire/>]}/> 
-            <Route path="/balance" element={[<Navbar/>, <Balance/>]}/> 
-            
+            <Route path="/balance" element={[<Navbar/>, <Card title="Wallet Locked" desc="Create an account to use your wallet"/>]}/> 
         </Routes>
     </BrowserRouter>
     ,

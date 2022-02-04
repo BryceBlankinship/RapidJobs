@@ -1,4 +1,5 @@
 import { React, Component } from 'react';
+import { createAsExpression } from 'typescript';
 import './auth.css';
 
 function signup() {

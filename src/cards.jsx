@@ -2,10 +2,6 @@ import { Component, React } from 'react';
 import './cards.css';
 
 class Card extends Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         if (this.props.title || this.props.desc !== undefined) {
             return (
@@ -26,8 +22,37 @@ class Card extends Component {
                 <div></div>
             );
         }
+
     }
 
 }
 
 export default Card;
+
+
+
+export class EditCard extends Component {
+    render() {
+        return (
+            <div className='card-container'>
+                <div className='card'>
+                    <h1 className='card-title'>
+                        <input placeholder='Who do you need?'></input>
+                    </h1>
+                    <p className='card-desc'>
+                        <span className='textarea' contentEditable></span>
+                    </p>
+
+                    <button className='submit' onClick={event => {
+                        /*
+                            Add job to the database (async)
+
+                            Add new card with information submitted in the list right below
+                        */
+                    }}></button>
+                </div>
+            </div>
+        );
+    }
+
+}

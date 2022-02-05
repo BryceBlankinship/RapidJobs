@@ -13,12 +13,12 @@ function renderButton(){
 
 function renderText(){
     if (localStorage.getItem('text') === 'true'){
-        return <h2>Hey There! You're session is saved!</h2>
+        return <h2>Hey There! Your session is saved!</h2>
     } else {
         return <h2>No Session found :(</h2>
     }
 }
-
+ 
 class Jobs extends Component {
     render(){
         return(

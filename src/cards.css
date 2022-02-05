@@ -9,8 +9,77 @@
     margin-top: 20px;
     margin-bottom: 20px;
     width: 400px;
+    border: 1px solid #777;
     border-radius: 8px;
     padding: 20px 40px;
     -webkit-box-shadow: 0 10px 25px rgba(92, 99, 105, 0.2);
             box-shadow: 0 10px 25px rgba(92, 99, 105, 0.2);
+}
+
+.card-title {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 24px;
+}
+
+.card-desc {
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.card-title > input {
+    text-align: center;
+    border: 0;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.card-title > input:focus {
+    outline: none;
+}
+
+.card-title > input::placeholder {
+    color: #777;
+}
+
+.textarea {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    resize: none;
+    min-height: 40px;
+    line-height: 20px;
+    padding: 10px;
+}
+
+.textarea:empty::before {
+    color: #777;
+    content: 'Job Description...';
+}
+
+/*
+Optionally clear the text when the user focuses on it
+
+.textarea:empty:focus::before {
+    content: '';
+}
+*/
+
+.textarea::placeholder{
+    color: #777;
+}
+
+.textarea:focus {
+    outline: none;
+}
+
+
+.submit {
+    margin-left: 95%;
+    border: 0;
+    background-color: #FFFFFF;
+    padding: 15px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url('./assets/NextArrow.svg');
 }

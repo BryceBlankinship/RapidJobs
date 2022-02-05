@@ -1,12 +1,12 @@
 import { React, Component } from 'react';
-import ReacliOM from 'react-dom';
+import ReactDOM from 'react-dom';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Auth from './auth.jsx';
 import Jobs from './jobs.jsx';
 import Hire from './hire.jsx';
 import Wallet from './wallet.jsx';
-import WalletCard from './cards.jsx';
-import Card from './cards.jsx';
+
+import { default as Card, EditCard } from './cards.jsx';
 
 import './jobs.css';
 import './navbar.css';
@@ -26,9 +26,6 @@ class Navbar extends Component {
                 </ul>
             </div>
         );
-        
-        
-
     }
 }
 
@@ -39,13 +36,14 @@ class JobPostings extends Component {
     render() {
         return (
             <div className='jobs-list'>
-                <Card title="Hey There" desc="Not so random description" renderAmount="20"/>
+                <EditCard/>
+                <Card title="Hey There" desc="Not so random description"/>
             </div>
         );
     }
 }
 
-ReacliOM.render(
+ReactDOM.render(
     <BrowserRouter>
         <Routes>
             <Route path="/" element={[<Navbar highlight="dashboard"/>, <JobPostings/>]}/>

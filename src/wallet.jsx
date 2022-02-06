@@ -1,13 +1,11 @@
-import { React, Component } from 'react';
+import { React, Component, Fragment } from 'react';
 import './wallet.css';
+import Card from './cards.jsx';
 
 class Wallet extends Component {
     render(){
         return(
-            <div>
-                <h1>Welcome to your Wallet</h1>
-                <h2>Please sign in to view balance</h2>
-            </div>
+            <Card title="Wallet Locked" desc={<Fragment><a href='/signup'>Create an account</a> to use your wallet</Fragment>}/>
         );
     }
 }

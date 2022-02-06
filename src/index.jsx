@@ -20,7 +20,7 @@ class Navbar extends Component {
                     <li><a className="active" href="/">Dashboard</a></li>
                     <li><a href="/jobs">Jobs</a></li>
                     <li><a href="/hire">Hire</a></li>
-                    <li><a href="/balance">Your Balance</a></li>
+                    <li><a href="/wallet">Wallet</a></li>
                     <li className='right'><a href="/signin">Sign in</a></li>
                     <li className='right'><a href="/signup">Sign up</a></li>
                 </ul>
@@ -51,7 +51,7 @@ ReactDOM.render(
             <Route path="/signin" element={[<Navbar/>, <Auth method="signin"/>]}/> 
             <Route path="/jobs" element={[<Navbar/>, <Jobs/>]}/> 
             <Route path="/hire" element={[<Navbar/>, <Hire/>]}/> 
-            <Route path="/balance" element={[<Navbar/>, <Card title="Wallet Locked" desc="Create an account to use your wallet"/>]}/> 
+            <Route path="/wallet" element={[<Navbar/>, <Wallet/>]}/> 
         </Routes>
     </BrowserRouter>
     ,

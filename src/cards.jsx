@@ -1,4 +1,4 @@
-import { Component, React } from 'react';
+import { Component, React, useRef } from 'react';
 import './cards.css';
 
 class Card extends Component {
@@ -37,7 +37,7 @@ export class EditCard extends Component {
             <div className='card-container'>
                 <div className='card'>
                     <h1 className='card-title'>
-                        <input placeholder='Who do you need?'></input>
+                        <input className='titletext' placeholder='Who do you need?'></input>
                     </h1>
                     <p className='card-desc'>
                         <span className='textarea' contentEditable></span>
@@ -49,6 +49,8 @@ export class EditCard extends Component {
 
                             Add new card with information submitted in the list right below
                         */
+
+                        
                     }}></button>
                 </div>
             </div>

@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { useState } from 'react';
  
 function Jobs() {
         const[obj, setObj] = useState({ text: localStorage.getItem('text') });

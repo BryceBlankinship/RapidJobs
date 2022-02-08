@@ -1,7 +1,8 @@
 import { Component, React, useState } from 'react';
 import './cards.css';
+import JobPostings from './index.jsx';
 
-class Card extends Component {
+export default class Card extends Component {
     render() {
         if (this.props.title || this.props.desc !== undefined) {
             return (
@@ -27,9 +28,6 @@ class Card extends Component {
 
 }
 
-export default Card;
-
-
 
 export function EditCard() {
     const [title, setTitle] = useState('');
@@ -39,10 +37,10 @@ export function EditCard() {
             <div className='card-container'>
                 <div className='card'>
                     <h1 className='card-title'>
-                        <input className='titletext' value={title} onChange={e => setTitle(e.currentTarget.value)} placeholder='Who do you need?'></input>
+                        <input className='titletext' onChange={e => setTitle(e.currentTarget.value)} placeholder='Who do you need?'></input>
                     </h1>
                     <p className='card-desc'>
-                        <span className='textarea' value={desc} onChange={e => setDesc(e.currentTarget.value)} contentEditable></span>
+                        <span className='textarea' onInput={e => setDesc(e.currentTarget.innerText)} contentEditable></span>
                     </p>
 
                     <button className='submit' onClick={event => {
@@ -51,9 +49,6 @@ export function EditCard() {
 
                             Add new card with information submitted in the list right below
                         */
-                        event.preventDefault();
-                        console.log(title);
-                        console.log(desc);
                         
                     }}></button>
                 </div>

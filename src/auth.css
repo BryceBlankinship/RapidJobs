@@ -6,6 +6,7 @@
   
   a {
     color: blue;
+    cursor: pointer;
   }
 
   .ssobody {
@@ -13,7 +14,7 @@
             box-sizing: border-box;
     margin: 0;
     padding: 0;
-    background-image: url("assets/revenue.svg");
+    background-image: url("./assets/revenue.svg");
     background-repeat: no-repeat;
     background-size: 300px;
     background-position-x: left;

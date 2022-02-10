@@ -1,0 +1,41 @@
+.footer-container {
+    bottom: 0;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+}
+
+hr {
+    max-width: 1000px;
+}
+
+.logo {
+    cursor: pointer;
+    border: 0;
+    background-color: #FFFFFF;
+    padding: 15px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.github {
+    background-image: url('./assets/logo-github.svg');
+}
+
+.react {
+    background-image: url('./assets/logo-react.svg');
+}
+
+.ionic {
+    background-image: url('./assets/logo-ionic.svg');
+}
+
+.html5 {
+    background-image: url('./assets/logo-html5.svg');
+}
+
+.css3 {
+    background-image: url('./assets/logo-css3.svg');
+}

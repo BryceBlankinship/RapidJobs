@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
+import './jobs.css';
  
-function Jobs() {
+export default function Jobs() {
         const[obj, setObj] = useState({ text: localStorage.getItem('text') });
 
         return(
-            <div>
+            <div className='jobsbody'>
                 <button onClick={() => {
                     if(localStorage.getItem('text') === 'false'){
                         localStorage.setItem('text', 'true');
@@ -21,4 +22,3 @@ function Jobs() {
         ); 
 }
 
-export default Jobs;

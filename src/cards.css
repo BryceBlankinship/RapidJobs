@@ -16,6 +16,10 @@
             box-shadow: 0 10px 25px rgba(92, 99, 105, 0.2);
 }
 
+.editcard {
+    margin-top: 50px;
+}
+
 .card-title {
     text-align: center;
     margin-top: 10px;
@@ -53,6 +57,7 @@
 }
 
 .textarea:empty::before {
+    cursor: text;
     color: #777;
     content: 'Job Description...';
 }
@@ -73,13 +78,27 @@ Optionally clear the text when the user focuses on it
     outline: none;
 }
 
-
 .submit {
+    cursor: pointer;
     margin-left: 95%;
     border: 0;
     background-color: #FFFFFF;
     padding: 15px;
     background-repeat: no-repeat;
     background-size: cover;
-    background-image: url('./assets/NextArrow.svg');
+    background-image: url('./assets/arrow-forward-circle-outline.svg');
+}
+
+.submitactive {
+    background-image: url('./assets/arrow-forward-circle.svg');
+}
+
+.bookmark {
+    padding: 14px;
+    background-image: url('./assets/bookmark-outline.svg');
+}
+
+.bookmarkactive {
+    padding: 14px;
+    background-image: url('./assets/bookmark-filled.svg');
 }

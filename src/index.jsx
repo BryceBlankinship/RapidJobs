@@ -1,12 +1,11 @@
-import { React, Component, useState } from 'react';
+import { React, Component } from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import axios from 'axios';
 import Auth from './auth.jsx';
 import Jobs from './jobs.jsx';
 import Hire from './hire.jsx';
 import Wallet from './wallet.jsx';
-
+import Footer from './footer.jsx';
 import { default as Card, EditCard } from './cards.jsx';
 
 import './jobs.css';
@@ -34,34 +33,29 @@ export default Navbar;
 
 let titles = ["test", "test2", "test3", "test4", "test5"];
 
-export function JobPostings(){
-    const [title, setTitle] = useState([]);
-    const [desc, setDesc] = useState([]);
-    let tempTitle = [];
-    titles.forEach((p) => tempTitle.push());
-    setTitle(tempTitle);
+export function JobPostings(props) {
 
     return (
         <div className='jobs-list'>
             <EditCard />
 
-            {title.map((p, i) => {
-                return <div key={i}><Card title={p} desc=""/></div>
+            {props.list.map((t, i) => {
+                return <div key={i}><Card title={t} desc="" /></div>
             })}
         </div>
     );
+
 }
 
 
 ReactDOM.render(
     <BrowserRouter>
         <Routes>
-            <Route path="/" element={[<Navbar highlight="dashboard" />, <JobPostings />]} />
-            <Route path="/signup" element={[<Navbar highlight="signup" />, <Auth method="signup" />]} />
-            <Route path="/signin" element={[<Navbar />, <Auth method="signin" />]} />
-            <Route path="/jobs" element={[<Navbar />, <Jobs />]} />
-            <Route path="/hire" element={[<Navbar />, <Hire />]} />
-            <Route path="/wallet" element={[<Navbar />, <Wallet />]} />
+            <Route path="/" element={[<Navbar highlight="dashboard" />, <JobPostings list={titles}/>, <Footer/>]} />
+            <Route path="/auth" element={[<Navbar />, <Auth method="signin" />, <Footer/>]} />
+            <Route path="/jobs" element={[<Navbar />, <Jobs />, <Footer/>]} />
+            <Route path="/hire" element={[<Navbar />, <Hire />, <Footer/>]} />
+            <Route path="/wallet" element={[<Navbar />, <Wallet />, <Footer/>]} />
         </Routes>
     </BrowserRouter>
     ,

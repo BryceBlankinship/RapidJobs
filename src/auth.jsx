@@ -1,7 +1,7 @@
 import { React, Component, useState } from 'react';
 import './auth.css';
 
-function AuthToggle() {
+export default function AuthToggle() {
     const [auth, setAuth] = useState(false);
 
     if(!auth){
@@ -63,9 +63,3 @@ function AuthToggle() {
     
 }
 
-
-export default class Auth extends Component {
-    render() {
-        return (<AuthToggle/>);
-    }
-}

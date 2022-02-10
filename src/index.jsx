@@ -1,7 +1,7 @@
 import { React, Component } from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Auth from './auth.jsx';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import AuthToggle from './auth.jsx';
 import Jobs from './jobs.jsx';
 import Hire from './hire.jsx';
 import Wallet from './wallet.jsx';
@@ -12,24 +12,30 @@ import './jobs.css';
 import './navbar.css';
 
 
-class Navbar extends Component {
+export default class Navbar extends Component {
+    constructor(props){
+        super(props);
+        this.state = 0;
+    }
+
     render() {
         return (
             <div className='center'>
                 <ul>
-                    <li><a className="active" href="/">Dashboard</a></li>
-                    <li><a href="/jobs">Jobs</a></li>
-                    <li><a href="/hire">Hire</a></li>
-                    <li><a href="/wallet">Wallet</a></li>
-                    <li className='right'><a href="/signin">Sign in</a></li>
-                    <li className='right'><a href="/signup">Sign up</a></li>
+                    <li><Link className={this.state.option === 0 ? 'active' : ''} to="/" onClick={() => this.setState({option:0})}>Dashboard</Link></li>
+                    <li><Link className={this.state.option === 1 ? 'active' : ''} to="/jobs" onClick={() => this.setState({option:1})}>Jobs</Link></li>
+                    <li><Link className={this.state.option === 2 ? 'active' : ''} to="/hire" onClick={() => this.setState({option:2})}>Hire</Link></li>
+                    <li><Link className={this.state.option === 3 ? 'active' : ''} to="/wallet" onClick={() => this.setState({option:3})}>Wallet</Link></li>
+                    <li className='right'><Link className={this.state.option === 4 ? 'active' : ''} to="/auth" onClick={() => {
+                        this.setState({option:4});
+                    }}>Sign in</Link></li>
+                    <li className='right'><Link className={this.state.option === 5 ? 'active' : ''} to="/auth" onClick={() => this.setState({option:5})}>Sign up</Link></li>
                 </ul>
             </div>
         );
     }
 }
 
-export default Navbar;
 
 let titles = ["test", "test2", "test3", "test4", "test5"];
 
@@ -52,7 +58,7 @@ ReactDOM.render(
     <BrowserRouter>
         <Routes>
             <Route path="/" element={[<Navbar highlight="dashboard" />, <JobPostings list={titles}/>, <Footer/>]} />
-            <Route path="/auth" element={[<Navbar />, <Auth method="signin" />, <Footer/>]} />
+            <Route path="/auth" element={[<Navbar />,  <AuthToggle/>, <Footer/>]} />
             <Route path="/jobs" element={[<Navbar />, <Jobs />, <Footer/>]} />
             <Route path="/hire" element={[<Navbar />, <Hire />, <Footer/>]} />
             <Route path="/wallet" element={[<Navbar />, <Wallet />, <Footer/>]} />

@@ -14,7 +14,6 @@ export default function Card(props) {
                         <p className='card-desc'>
                             {props.desc}
                         </p>
-
                         <button className={bookmarked ? 'submit bookmarkactive' : 'submit bookmark'}  onClick={event => {
                             setBookmarked(!bookmarked);
                             console.log("Bookmark button pressed");

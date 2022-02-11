@@ -51,3 +51,19 @@ ul {
     max-height: 10px;
     margin: 0;
   }
+
+  .icon {
+    margin-top: 12px;
+    cursor: pointer;
+    border: 0;
+    background-color: rgba(0,0,0,0);
+    padding: 14px;
+  }
+
+  .notification {
+    background-image: url("./assets/notifications-outline.svg");
+  }
+
+  .notification-active {
+    background-image: url("./assets/notifications.svg");
+  }

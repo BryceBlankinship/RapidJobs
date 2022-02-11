@@ -1,5 +1,7 @@
-import { React, Component, useState } from 'react';
+import { React, Component, useState, Fragment } from 'react';
 import './auth.css';
+
+
 
 export default function AuthToggle() {
     const [auth, setAuth] = useState(false);
@@ -62,4 +64,3 @@ export default function AuthToggle() {
     }
     
 }
-

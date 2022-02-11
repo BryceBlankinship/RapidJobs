@@ -6,8 +6,8 @@ import Jobs from './jobs.jsx';
 import Hire from './hire.jsx';
 import Wallet from './wallet.jsx';
 import Footer from './footer.jsx';
+import NotificationBell from './notifications.jsx';
 import { default as Card, EditCard } from './cards.jsx';
-
 import './jobs.css';
 import './navbar.css';
 
@@ -15,7 +15,7 @@ import './navbar.css';
 export default class Navbar extends Component {
     constructor(props){
         super(props);
-        this.state = 0;
+        this.state = {option: 0};
     }
 
     render() {
@@ -29,7 +29,8 @@ export default class Navbar extends Component {
                     <li className='right'><Link className={this.state.option === 4 ? 'active' : ''} to="/auth" onClick={() => {
                         this.setState({option:4});
                     }}>Sign in</Link></li>
-                    <li className='right'><Link className={this.state.option === 5 ? 'active' : ''} to="/auth" onClick={() => this.setState({option:5})}>Sign up</Link></li>
+                    <li className='right'><Link className={this.state.option === 5 ? 'active' : ''} to="/auth" onClick={() => this.setState({option:5})}>Sign Up</Link></li>
+                    <li className='right'>{<NotificationBell/>}</li>
                 </ul>
             </div>
         );

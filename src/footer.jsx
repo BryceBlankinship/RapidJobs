@@ -7,7 +7,9 @@ export default class Footer extends Component {
             <div className='footer-container'>
                 <br></br>
                 <hr></hr>
-                <p>Developed by <a href="https://www.bryceblankinship.com">Bryce Blankinship</a></p>
+                <p>Developed by <a onClick={event => {
+                    window.open("https://bryceblankinship.com", "_blank");
+                }}>Bryce Blankinship</a></p>
                 <button className='logo github' onClick={event => {
                     window.open("https://github.com/BryceBlankinship/RapidJobs", '_blank');
                 }}></button>

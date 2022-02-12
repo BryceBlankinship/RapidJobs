@@ -6,7 +6,7 @@ import Jobs from './jobs.jsx';
 import Hire from './hire.jsx';
 import Wallet from './wallet.jsx';
 import Footer from './footer.jsx';
-import NotificationBell from './notifications.jsx';
+import { default as NotificationBell, NotificationPopup} from './notifications.jsx';
 import { default as Card, EditCard } from './cards.jsx';
 import './jobs.css';
 import './navbar.css';
@@ -15,10 +15,10 @@ import './navbar.css';
 export default class Navbar extends Component {
     constructor(props){
         super(props);
-        this.state = {option: 0};
+        this.state = { option: 0 };
     }
 
-    render() {
+    render(){
         return (
             <div className='center'>
                 <ul>
@@ -58,11 +58,11 @@ export function JobPostings(props) {
 ReactDOM.render(
     <BrowserRouter>
         <Routes>
-            <Route path="/" element={[<Navbar highlight="dashboard" />, <JobPostings list={titles}/>, <Footer/>]} />
-            <Route path="/auth" element={[<Navbar />,  <AuthToggle/>, <Footer/>]} />
-            <Route path="/jobs" element={[<Navbar />, <Jobs />, <Footer/>]} />
-            <Route path="/hire" element={[<Navbar />, <Hire />, <Footer/>]} />
-            <Route path="/wallet" element={[<Navbar />, <Wallet />, <Footer/>]} />
+            <Route path="/" element={[<Navbar/>, <JobPostings list={titles}/>, <Footer/>]} />
+            <Route path="/auth" element={[<Navbar/>,  <AuthToggle/>, <Footer/>]} />
+            <Route path="/jobs" element={[<Navbar/>, <Jobs />, <Footer/>]} />
+            <Route path="/hire" element={[<Navbar/>, <Hire />, <Footer/>]} />
+            <Route path="/wallet" element={[<Navbar/>, <Wallet />, <Footer/>]} />
         </Routes>
     </BrowserRouter>
     ,

@@ -7,10 +7,28 @@ import './navbar.css';
 
 export default function NotificationBell(){
     const [active, setActive] = useState(false);
-    
-    return(
-        <a className={active ? 'icon notification' : 'icon notification-active'} onClick={() => {
-            setActive(!active)
-        }}></a>
-    );
+
+    if(active){
+        <NotificationPopup show="true"/>
+        return(
+            <a className={active ? 'icon notification-active' : 'icon notification'} onMouseDown={() => {
+                setActive(!active);
+            }}></a>
+        );
+    }else{
+        return(
+            <a className={active ? 'icon notification-active' : 'icon notification'} onMouseDown={() => {
+                setActive(!active);
+            }}></a>
+        );
+    }
+
+}
+
+export function NotificationPopup(props){
+    if(props.show === "true"){
+        return (<div className="notification-overlay">test</div>);
+    }else{
+        return null;
+    }
 }

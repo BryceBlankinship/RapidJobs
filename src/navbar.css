@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
 *, *::before, *::after {
   font-family: 'Poppins', sans-serif;
 }
@@ -12,58 +13,60 @@
 }
 
 ul {
-    min-width: 800px;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    border: 1px solid #777;
-    background-color: #f3f3f3;
-    border-radius: 8px;
-  }
-  
-  li {
-    float: left;
-  }
+  min-width: 800px;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid #777;
+  background-color: #f3f3f3;
+  border-radius: 8px;
+}
 
-  .right {
-    float: right;
-  }
-  
-  li a {
-    display: block;
-    color: #666;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-  }
-  
-  li a:hover:not(.active) {
-    background-color: #ddd;
-  }
-  
-  li a.active {
-    color: white;
-    background-color: blue;
-  }
+li {
+  float: left;
+}
 
-  li input {
-    max-height: 10px;
-    margin: 0;
-  }
+.right {
+  float: right;
+}
 
-  .icon {
-    margin-top: 12px;
-    cursor: pointer;
-    border: 0;
-    background-color: rgba(0,0,0,0);
-    padding: 14px;
-  }
+li a {
+  display: block;
+  color: #666;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
 
-  .notification {
-    background-image: url("./assets/notifications-outline.svg");
-  }
+li a:hover:not(.active) {
+  background-color: #ddd;
+}
 
-  .notification-active {
-    background-image: url("./assets/notifications.svg");
-  }
+li a.active {
+  color: white;
+  background-color: blue;
+}
+
+li input {
+  max-height: 10px;
+  margin: 0;
+}
+
+.icon {
+  margin-top: 12px;
+  cursor: pointer;
+  border: 0;
+  background-color: rgba(0, 0, 0, 0);
+  padding: 14px;
+}
+
+.notification {
+  background-image: url("./assets/notifications-outline.svg");
+  margin-right: 10px;
+}
+
+.notification-active {
+  background-image: url("./assets/notifications.svg");
+  margin-right: 10px;
+}

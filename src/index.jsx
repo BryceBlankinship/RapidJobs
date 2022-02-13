@@ -6,7 +6,7 @@ import Jobs from './jobs.jsx';
 import Hire from './hire.jsx';
 import Wallet from './wallet.jsx';
 import Footer from './footer.jsx';
-import { default as NotificationBell, NotificationPopup} from './notifications.jsx';
+import { default as NotificationBell } from './notifications.jsx';
 import { default as Card, EditCard } from './cards.jsx';
 import './jobs.css';
 import './navbar.css';
@@ -30,7 +30,7 @@ export default class Navbar extends Component {
                         this.setState({option:4});
                     }}>Sign in</Link></li>
                     <li className='right'><Link className={this.state.option === 5 ? 'active' : ''} to="/auth" onClick={() => this.setState({option:5})}>Sign Up</Link></li>
-                    <li className='right'>{<NotificationBell/>}</li>
+                    <li className='right'>{[<NotificationBell/>]}</li>
                 </ul>
             </div>
         );
@@ -38,7 +38,11 @@ export default class Navbar extends Component {
 }
 
 
-let titles = ["test", "test2", "test3", "test4", "test5"];
+//Generate 50 cards for testing
+let titles = [];
+for(let i = 0; i < 50; i++){
+    titles.push("test" + i);
+}
 
 export function JobPostings(props) {
 

@@ -1,22 +1,27 @@
-import { React, useState } from 'react';
+import { React, useState, Component } from 'react';
 import './cards.css';
 
-export default function Card(props) {
-    const [bookmarked, setBookmarked] = useState(false);
+export default class Card extends Component {
+    constructor(props){
+        super(props);
+        this.state = { bookmarked: false };
+    }
 
-    if (props.title || props.desc !== undefined) {
+    render(){
+    if (this.props.title || this.props.desc !== undefined) {
             return (
                 <div className='card-container'>
                     <div className='card'>
                         <h1 className='card-title'>
-                            {props.title}
+                            {this.props.title}
                         </h1>
                         <p className='card-desc'>
-                            {props.desc}
+                            {this.props.desc}
                         </p>
-                        <button className={bookmarked ? 'submit bookmarkactive' : 'submit bookmark'}  onClick={event => {
-                            setBookmarked(!bookmarked);
-                            console.log("Bookmark button pressed");
+                        <button className={this.state.bookmarked ? 'submit bookmarkactive' : 'submit bookmark'}  onClick={event => {
+                            this.setState({ bookmarked: !this.state.bookmarked }, () => {
+                                console.log("Bookmark status: " + this.state.bookmarked);
+                            });
                         }}></button>
                     </div>
                 </div>
@@ -25,36 +30,41 @@ export default function Card(props) {
             console.log("Card missing properties");
             return (<div></div>);
         }
-
+    }
 }
 
 
-export function EditCard() {
-    const [title, setTitle] = useState('');
-    const [desc, setDesc] = useState('');
-    const [btnActive, setBtnActive] = useState(false);
+export class EditCard extends Component {
+    constructor(props){
+        super(props);
+        this.state = { title: '', desc: '', submitActive: false };
+    }
+    
+    render(){
         return (
             <div className='card-container'>
                 <div className='editcard'>
                     <div className='card'>
                         <h1 className='card-title'>
-                            <input className='titletext' onChange={e => setTitle(e.currentTarget.value)} placeholder='Who do you need?'></input>
+                            <input className='titletext' onChange={e => this.setState({title: e.currentTarget.value})} placeholder='Who do you need?'></input>
                         </h1>
                         <p className='card-desc'>
-                            <span className='textarea' onInput={e => setDesc(e.currentTarget.innerText)} contentEditable></span>
+                            <span className='textarea' onInput={e => this.setState({desc: e.currentTarget.innerText})} contentEditable></span>
                         </p>
 
-                        <button className={btnActive ? 'submit submitactive' : 'submit'} onClick={event => {
+                        <button className={this.state.submitActive ? 'submit submitactive' : 'submit'} onClick={event => {
                             /*
                                 Add job to the database (async)
 
                                 Add new card with information submitted in the list right below
                             */
-                            setBtnActive(!btnActive);
-                            console.log("Edit card button pressed", title, desc);
+                            this.setState({submitActive: !this.state.submitActive}, () => {
+                                console.log("Card submit status: " + this.state.submitActive, this.state.title, this.state.desc);
+                            });
                         }}></button>
                     </div>
                 </div>
             </div>
         );
+    }
 }

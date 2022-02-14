@@ -1,3 +1,4 @@
+
 .card-container {
     display: flex;
     flex-direction: column;
@@ -13,10 +14,14 @@
     border-radius: 8px;
     padding: 20px 40px;
     -webkit-box-shadow: 0 10px 25px rgba(92, 99, 105, 0.2);
-            box-shadow: 0 10px 25px rgba(92, 99, 105, 0.2);
+    box-shadow: 0 10px 25px rgba(92, 99, 105, 0.2);
 }
 
 .editcard {
+    margin-top: 50px;
+}
+
+.walletcard {
     margin-top: 50px;
 }
 
@@ -31,18 +36,18 @@
     font-weight: normal;
 }
 
-.card-title > input {
+.card-title>input {
     text-align: center;
     border: 0;
     font-size: 24px;
     font-weight: bold;
 }
 
-.card-title > input:focus {
+.card-title>input:focus {
     outline: none;
 }
 
-.card-title > input::placeholder {
+.card-title>input::placeholder {
     color: #777;
 }
 
@@ -70,7 +75,7 @@ Optionally clear the text when the user focuses on it
 }
 */
 
-.textarea::placeholder{
+.textarea::placeholder {
     color: #777;
 }
 
@@ -101,4 +106,24 @@ Optionally clear the text when the user focuses on it
 .bookmarkactive {
     padding: 14px;
     background-image: url('./assets/bookmark-filled.svg');
+}
+
+.add {
+    background-image: url('./assets/add-circle-outline.svg');
+}
+
+.addactive {
+    background-image: url('./assets/add-circle.svg');
+}
+
+.cardicon {
+    padding: 14px;
+    background-image: url('./assets/card-outline.svg');
+}
+
+.btnlabel {
+    margin-top: -25px;
+    font-size: 14px;
+    margin-right: 25px;
+    text-align: right;
 }

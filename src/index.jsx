@@ -21,7 +21,7 @@ export default class Navbar extends Component {
     render(){
         return (
             <div className='center'>
-                <ul>
+                <ul className='navbar'>
                     <li><Link className={this.state.option === 0 ? 'active' : ''} to="/" onClick={() => this.setState({option:0})}>Dashboard</Link></li>
                     <li><Link className={this.state.option === 1 ? 'active' : ''} to="/jobs" onClick={() => this.setState({option:1})}>Jobs</Link></li>
                     <li><Link className={this.state.option === 2 ? 'active' : ''} to="/hire" onClick={() => this.setState({option:2})}>Hire</Link></li>
@@ -66,7 +66,7 @@ ReactDOM.render(
             <Route path="/auth" element={[<Navbar/>,  <AuthToggle/>, <Footer/>]} />
             <Route path="/jobs" element={[<Navbar/>, <Jobs />, <Footer/>]} />
             <Route path="/hire" element={[<Navbar/>, <Hire />, <Footer/>]} />
-            <Route path="/wallet" element={[<Navbar/>, <Wallet />, <Footer/>]} />
+            <Route path="/wallet" element={[<Navbar/>, <Wallet/>, <Footer/>]} />
         </Routes>
     </BrowserRouter>
     ,

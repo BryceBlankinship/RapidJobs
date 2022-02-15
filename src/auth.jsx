@@ -2,9 +2,12 @@ import { React, Component, useState, Fragment } from 'react';
 import './auth.css';
 
 
-
 export default function AuthToggle() {
     const [auth, setAuth] = useState(false);
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    const [email, setEmail] = useState("");
+    const [loginStatus, setLoginStatus] = useState("");
 
     if(!auth){
         return (

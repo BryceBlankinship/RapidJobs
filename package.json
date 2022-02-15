@@ -9,9 +9,10 @@
     "@testing-library/user-event": "^13.5.0",
     "apollo-server-express": "^3.6.2",
     "axios": "^0.25.0",
+    "dotenv": "^16.0.0",
     "express": "^4.17.2",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^6.2.0",
+    "mongoose": "^6.2.1",
     "nodemon": "^2.0.15",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -20,7 +21,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "nodemon src/auth.js",
+    "start": "nodemon src/auth.cjs",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

@@ -21,37 +21,29 @@ mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true }, () => {
     console.log('connected to the db successfully!');
 });
 
-app.post('/register', async (req, res) => {
-    const user = new User({
-        name: req.body.name,
-        email: req.body.email,
-        password: req.body.password
-    });
-    try {
-        const savedUser = await user.save();
-        res.send(savedUser);
-    } catch (err) {
-        res.status(400).send(err);
-    }
-});
-
 let courses = [{id: 1, name: 'course1'},{id: 2, name: 'course2'}];
 
 app.get('/api/courses/:id', (req, res) => {
-    if(id instanceof String){
+    if(req.params.id){
         const course = courses.find(c => c.id === parseInt(req.params.id));
-        res.send(course);
+        // get from database
+        if(course){
+            res.send(course);
+        }else{
+            res.status(404).send(`The ID "${req.params.id}" does not have an associated course.`);
+        }
     }else{
-        res.status(400).send('Invalid ID. Must be of type String');
+        res.status(400).send('ID is required.');
     }
 });
 
-app.post('/api/courses', (req, res) => {
+app.post('/api/courses/', (req, res) => {
     const course = {
         id: courses.length + 1,
         name: req.body.name
     };
     courses.push(course);
+    // upload to database
     res.send(course);
 });
 

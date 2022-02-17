@@ -12,6 +12,8 @@ import './jobs.css';
 import './navbar.css';
 
 
+let userSelectedAuthMethod = false;
+
 export default class Navbar extends Component {
     constructor(props){
         super(props);
@@ -23,7 +25,7 @@ export default class Navbar extends Component {
             <div className='center'>
                 <ul className='navbar'>
                     <li><Link className={this.state.option === 0 ? 'active' : ''} to="/" onClick={() => this.setState({option:0})}>Dashboard</Link></li>
-                    <li><Link className={this.state.option === 1 ? 'active' : ''} to="/jobs" onClick={() => this.setState({option:1})}>Jobs</Link></li>
+                    <li><Link className={this.state.option === 1 ? 'active' : ''} to="/saved" onClick={() => this.setState({option:1})}>Saved</Link></li>
                     <li><Link className={this.state.option === 2 ? 'active' : ''} to="/hire" onClick={() => this.setState({option:2})}>Hire</Link></li>
                     <li><Link className={this.state.option === 3 ? 'active' : ''} to="/wallet" onClick={() => this.setState({option:3})}>Wallet</Link></li>
                     <li className='right'><Link className={this.state.option === 4 ? 'active' : ''} to="/auth" onClick={() => {
@@ -63,7 +65,7 @@ export function JobPostings(props) {
             <EditCard />
 
             {props.list.map((t, i) => {
-                return <div key={i}><Card title={t} desc="" /></div>
+                return <div key={i}><Card allowDisable={false} allowBookmark={true} title={t} desc="Just your run-of-the-mill description" /></div>
             })}
 
             {displayDiceTooltip()}
@@ -85,8 +87,8 @@ ReactDOM.render(
     <BrowserRouter>
         <Routes>
             <Route path="/" element={[<Navbar/>, <JobPostings list={titles}/>, <Footer/>]} />
-            <Route path="/auth" element={[<Navbar/>,  <AuthToggle/>, <Footer/>]} />
-            <Route path="/jobs" element={[<Navbar/>, <Jobs />, <Footer/>]} />
+            <Route path="/auth" element={[<Navbar/>,  <AuthToggle showSignin={userSelectedAuthMethod}/>, <Footer/>]} />
+            <Route path="/saved" element={[<Navbar/>, <Jobs />, <Footer/>]} />
             <Route path="/hire" element={[<Navbar/>, <Hire />, <Footer/>]} />
             <Route path="/wallet" element={[<Navbar/>, <Wallet/>, <Footer/>]} />
         </Routes>

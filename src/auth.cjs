@@ -17,6 +17,10 @@ app.use(express.json());
 
 dotenv.config();
 
+export default function authenticateUser(email, password){
+    console.log(email, password);
+}
+
 MongoClient.connect(process.env.DB_CONNECT, (err, client) => {
     if (err) { throw err } else console.log("Authentication to MongoDB successful!");
     let db = client.db('usersDB');

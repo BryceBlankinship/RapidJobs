@@ -2,12 +2,12 @@ import { React, useState, Component } from 'react';
 import './cards.css';
 
 export class Popup extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
     }
-    
-    render(){
-        return(
+
+    render() {
+        return (
             <div>test</div>
         );
     }
@@ -22,28 +22,38 @@ export default class Card extends Component {
         };
     }
 
+    showDisableOption(){
+        return(
+            <button className='submit exit' onClick={() => {
+                this.setState({ popupActive: !this.state.popupActive });
+                console.log(this.state.popupActive);
+            }}></button>
+        );
+    }
+
+    showBookmarkOption(){
+        return(
+            <button className={this.state.bookmarked ? 'submit bookmarkactive' : 'submit bookmark'} onClick={event => {
+                this.setState({ bookmarked: !this.state.bookmarked }, () => {
+                    console.log("Bookmark status: " + this.state.bookmarked);
+                });
+            }}></button>
+        );
+    }
+
     render() {
         if (this.props.title || this.props.desc !== undefined) {
             return (
                 <div className='card-container'>
                     <div className='card'>
-                        <button className='submit exit' onClick={() => {
-                            this.setState({ popupActive: !this.state.popupActive });
-                            console.log(this.state.popupActive);
-                        }}>
-
-                        </button>
+                        {this.props.allowDisable ? this.showDisableOption() : null}
                         <h1 className='card-title'>
                             {this.props.title}
                         </h1>
                         <p className='card-desc'>
                             {this.props.desc}
                         </p>
-                        <button className={this.state.bookmarked ? 'submit bookmarkactive' : 'submit bookmark'} onClick={event => {
-                            this.setState({ bookmarked: !this.state.bookmarked }, () => {
-                                console.log("Bookmark status: " + this.state.bookmarked);
-                            });
-                        }}></button>
+                        {this.props.allowBookmark ? this.showBookmarkOption() : null}
                     </div>
                 </div>
             );
@@ -118,7 +128,7 @@ export class WalletCard extends Component {
                                 */
                                 this.setState({ submitActive: !this.state.submitActive }, () => {
                                     console.log("add funds state: " + this.state.submitActive);
-                                    
+
                                 });
                             }}></button>
                             <div className="btnlabel">Add Funds</div>

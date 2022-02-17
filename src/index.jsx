@@ -1,4 +1,4 @@
-import { React, Component } from 'react';
+import { React, Component, useState } from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import AuthToggle from './auth.jsx';
@@ -30,7 +30,7 @@ export default class Navbar extends Component {
                         this.setState({option:4});
                     }}>Sign in</Link></li>
                     <li className='right'><Link className={this.state.option === 5 ? 'active' : ''} to="/auth" onClick={() => this.setState({option:5})}>Sign Up</Link></li>
-                    <li className='right'>{[<NotificationBell/>]}</li>
+                    <li className='right'>{<NotificationBell/>}</li>
                 </ul>
             </div>
         );
@@ -44,7 +44,19 @@ for(let i = 0; i < 50; i++){
     titles.push("test" + i);
 }
 
-export function JobPostings(props) {
+export function JobPostings(props) {    
+    const [showDiceTooltip, setShowDiceTooltip] = useState(false);
+    const [diceClicked, setDiceClicked] = useState(false);
+
+    function displayDiceTooltip(){
+        if(showDiceTooltip){
+            return(
+                <div className="dice-tooltip">Randomize Jobs!</div>
+            );
+        }else{
+            return null;
+        }
+    }
 
     return (
         <div className='jobs-list'>
@@ -53,6 +65,16 @@ export function JobPostings(props) {
             {props.list.map((t, i) => {
                 return <div key={i}><Card title={t} desc="" /></div>
             })}
+
+            {displayDiceTooltip()}
+            <div className={diceClicked ? "logo dice spin" : "logo dice"} onMouseEnter={() => {
+                setShowDiceTooltip(true);
+            }} onMouseLeave={() => {
+                setShowDiceTooltip(false);
+            }} onClick={() => {
+                // animation plays only when true, find alternative to this
+                setDiceClicked(!diceClicked);
+            }}></div>
         </div>
     );
 

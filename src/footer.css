@@ -35,3 +35,32 @@ hr {
 .css3 {
     background-image: url('./assets/logo-css3.svg');
 }
+
+.dice {
+    position: fixed;
+    padding: 20px;
+    bottom: 20px;
+    left: 20px;
+    background-image: url('./assets/dice-outline.svg');
+}
+
+.spin {
+    animation-name: spin;
+    animation-duration: 500ms;
+    animation-timing-function: ease-in-out; 
+}
+
+@keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+}
+
+.dice-tooltip {
+    bottom: 28px;
+    left: 70px;
+    position: fixed;
+}

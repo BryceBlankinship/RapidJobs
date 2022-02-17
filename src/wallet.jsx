@@ -4,12 +4,10 @@ import { WalletCard } from './cards.jsx';
 
 export default class Wallet extends Component {
     render() {
-        return(
-            <>
-                <div className="background">
-                    <WalletCard/>
-                </div>
-            </>
+        return (
+            <div className="background">
+                <WalletCard />
+            </div>
         );
     }
 }

@@ -1,5 +1,5 @@
 const express = require('express');
-const mongoose = require('mongoose');
+const MongoClient = require('mongodb').MongoClient;
 const dotenv = require('dotenv');
 
 const app = express();
@@ -17,22 +17,29 @@ app.use(express.json());
 
 dotenv.config();
 
-mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true }, () => {
-    console.log('connected to the db successfully!');
+MongoClient.connect(process.env.DB_CONNECT, (err, client) => {
+    if (err) { throw err } else console.log("Authentication to MongoDB successful!");
+    let db = client.db('usersDB');
+    db.collection('users').find().toArray((err, result) => {
+        if (err) throw err;
+        console.log(result);
+        client.close();
+    });
+
 });
 
-let courses = [{id: 1, name: 'course1'},{id: 2, name: 'course2'}];
+let courses = [{ id: 1, name: 'course1' }, { id: 2, name: 'course2' }];
 
 app.get('/api/courses/:id', (req, res) => {
-    if(req.params.id){
+    if (req.params.id) {
         const course = courses.find(c => c.id === parseInt(req.params.id));
         // get from database
-        if(course){
+        if (course) {
             res.send(course);
-        }else{
+        } else {
             res.status(404).send(`The ID "${req.params.id}" does not have an associated course.`);
         }
-    }else{
+    } else {
         res.status(400).send('ID is required.');
     }
 });

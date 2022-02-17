@@ -116,6 +116,11 @@ Optionally clear the text when the user focuses on it
     background-image: url('./assets/add-circle.svg');
 }
 
+.exit {
+    margin-left: -100%;
+    background-image: url('./assets/close-outline.svg');
+}
+
 .cardicon {
     padding: 14px;
     background-image: url('./assets/card-outline.svg');

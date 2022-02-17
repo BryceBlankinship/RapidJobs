@@ -1,10 +1,25 @@
 import { React, useState, Component } from 'react';
 import './cards.css';
 
+export class Popup extends Component {
+    constructor(props){
+        super(props);
+    }
+    
+    render(){
+        return(
+            <div>test</div>
+        );
+    }
+}
+
 export default class Card extends Component {
     constructor(props) {
         super(props);
-        this.state = { bookmarked: false };
+        this.state = {
+            bookmarked: false,
+            popupActive: false
+        };
     }
 
     render() {
@@ -12,6 +27,12 @@ export default class Card extends Component {
             return (
                 <div className='card-container'>
                     <div className='card'>
+                        <button className='submit exit' onClick={() => {
+                            this.setState({ popupActive: !this.state.popupActive });
+                            console.log(this.state.popupActive);
+                        }}>
+
+                        </button>
                         <h1 className='card-title'>
                             {this.props.title}
                         </h1>
@@ -73,7 +94,7 @@ export class WalletCard extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            isAuthenticated: true,
+            isAuthenticated: false,
             submitActive: false
         };
     }
@@ -112,7 +133,7 @@ export class WalletCard extends Component {
                     <div className='walletcard'>
                         <div className="card">
                             <h1 className='card-title'>
-                                Your Wallet
+                                Wallet Locked
                             </h1>
                             <p className='card-desc'>
                                 To view your wallet, <a href="/auth">Sign In</a>.

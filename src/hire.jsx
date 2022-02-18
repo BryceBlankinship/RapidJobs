@@ -1,4 +1,4 @@
-import { React, Component } from 'react';
+import { React, Component, createRef } from 'react';
 import './hire.css';
 import Card from './cards.jsx';
 import Search from './search.jsx';
@@ -14,35 +14,39 @@ import Search from './search.jsx';
  */
 
 export default class HireView extends Component {
+    constructor(props) {
+        super(props);
+    }
+
     render() {
         return (
-            <>
-            <h1 className='heading'>How Can We Help?</h1>
-            <Search placeholder='Search'></Search>
-            <div className="hire-container">
-                <div className="left-column">
-                    <Card width="200px" title="test" />
-                    <Card width="200px" title="test" />
-                    <Card width="200px" title="test" />
-                    <Card width="200px" title="test" />
-                    <Card width="200px" title="test" />
-                </div>
-                <div className="middle-column">
-                    <Card width="200px" title="test" />
-                    <Card width="200px" title="test" />
-                    <Card width="200px" title="test" />
-                    <Card width="200px" title="test" />
-                    <Card width="200px" title="test" />
-                </div>
-                <div className="right-column">
-                    <Card width="200px" title="test" />
-                    <Card width="200px" title="test" />
-                    <Card width="200px" title="test" />
-                    <Card width="200px" title="test" />
-                    <Card width="200px" title="test" />
+            <div className='hireview'>
+                <h1 className='heading'>How Can We Help?</h1>
+                <Search placeholder='Search'></Search>
+                <div className="hire-container">
+                    <div className="left-column">
+                        <Card width="200px" title="test" />
+                        <Card width="200px" title="test" />
+                        <Card width="200px" title="test" />
+                        <Card width="200px" title="test" />
+                        <Card width="200px" title="test" />
+                    </div>
+                    <div className="middle-column">
+                        <Card width="200px" title="test" />
+                        <Card width="200px" title="test" />
+                        <Card width="200px" title="test" />
+                        <Card width="200px" title="test" />
+                        <Card width="200px" title="test" />
+                    </div>
+                    <div className="right-column">
+                        <Card width="200px" title="test" />
+                        <Card width="200px" title="test" />
+                        <Card width="200px" title="test" />
+                        <Card width="200px" title="test" />
+                        <Card width="200px" title="test" />
+                    </div>
                 </div>
             </div>
-            </>
         );
     }
 }

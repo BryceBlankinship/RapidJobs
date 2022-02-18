@@ -1,5 +1,4 @@
 import { React, Component, useState, Fragment } from 'react';
-import authenticateUser from './auth.cjs';
 import './auth.css';
 
 
@@ -34,7 +33,7 @@ export default function AuthToggle(props) {
                         <h3 id="switchtosignin">Don't have an account yet? <a onClick={() => setAuth(!auth)}>Sign up here.</a></h3>
                         <input type="submit" className="submitBtn" id="signinButton" value="Sign in" onClick={event => {
                             event.preventDefault();
-                            authenticateUser(email, password);
+                            //send to auth.cjs to validate and create jwt
                         }}></input>
                     </form>
                 </div>
@@ -71,6 +70,7 @@ export default function AuthToggle(props) {
                         <h3 id="switchtosignin">Already registered? <a onClick={() => setAuth(!auth)}>Sign in here.</a></h3>
                         <input type="submit" className="submitBtn" id="signupButton" value="Sign up" onClick={event => {
                             event.preventDefault();
+                            // send to auth.cjs file
                         }}></input>
                     </form>
                 </div>

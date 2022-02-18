@@ -10,6 +10,7 @@
   align-items: center;
   position: fixed;
   width: 100%;
+  z-index: 2;
 }
 
 .navbar {
@@ -62,12 +63,12 @@ li input {
 }
 
 .notification-bell {
-  background-image: url("./assets/notifications-outline.svg");
+  background-image: url("./assets/icons/notifications-outline.svg");
   margin-right: 10px;
 }
 
 .notification-bell-active {
-  background-image: url("./assets/notifications.svg");
+  background-image: url("./assets/icons/notifications.svg");
   margin-right: 10px;
 }
 

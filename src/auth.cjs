@@ -17,7 +17,7 @@ app.use(express.json());
 
 dotenv.config();
 
-export default function authenticateUser(email, password){
+export function authenticateUser(email, password){
     console.log(email, password);
 }
 

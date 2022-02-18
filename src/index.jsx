@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import AuthToggle from './auth.jsx';
 import Jobs from './jobs.jsx';
-import Hire from './hire.jsx';
+import HireView from './hire.jsx';
 import Wallet from './wallet.jsx';
 import Footer from './footer.jsx';
 import { default as NotificationBell } from './notifications.jsx';
@@ -11,8 +11,6 @@ import { default as Card, EditCard } from './cards.jsx';
 import './jobs.css';
 import './navbar.css';
 
-
-let userSelectedAuthMethod = false;
 
 export default class Navbar extends Component {
     constructor(props){
@@ -74,7 +72,7 @@ export function JobPostings(props) {
             }} onMouseLeave={() => {
                 setShowDiceTooltip(false);
             }} onClick={() => {
-                // animation plays only when true, find alternative to this
+                // animation plays every other click, find alternative to this
                 setDiceClicked(!diceClicked);
             }}></div>
         </div>
@@ -87,9 +85,9 @@ ReactDOM.render(
     <BrowserRouter>
         <Routes>
             <Route path="/" element={[<Navbar/>, <JobPostings list={titles}/>, <Footer/>]} />
-            <Route path="/auth" element={[<Navbar/>,  <AuthToggle showSignin={userSelectedAuthMethod}/>, <Footer/>]} />
+            <Route path="/auth" element={[<Navbar/>,  <AuthToggle/>, <Footer/>]} />
             <Route path="/saved" element={[<Navbar/>, <Jobs />, <Footer/>]} />
-            <Route path="/hire" element={[<Navbar/>, <Hire />, <Footer/>]} />
+            <Route path="/hire" element={[<Navbar/>, <HireView/>, <Footer/>]} />
             <Route path="/wallet" element={[<Navbar/>, <Wallet/>, <Footer/>]} />
         </Routes>
     </BrowserRouter>

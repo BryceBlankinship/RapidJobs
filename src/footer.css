@@ -17,23 +17,23 @@ hr {
 }
 
 .github {
-    background-image: url('./assets/logo-github.svg');
+    background-image: url('./assets/logos/logo-github.svg');
 }
 
 .react {
-    background-image: url('./assets/logo-react.svg');
+    background-image: url('./assets/logos/logo-react.svg');
 }
 
 .ionic {
-    background-image: url('./assets/logo-ionic.svg');
+    background-image: url('./assets/logos/logo-ionic.svg');
 }
 
 .html5 {
-    background-image: url('./assets/logo-html5.svg');
+    background-image: url('./assets/logos/logo-html5.svg');
 }
 
 .css3 {
-    background-image: url('./assets/logo-css3.svg');
+    background-image: url('./assets/logos/logo-css3.svg');
 }
 
 .dice {
@@ -41,7 +41,7 @@ hr {
     padding: 20px;
     bottom: 20px;
     left: 20px;
-    background-image: url('./assets/dice-outline.svg');
+    background-image: url('./assets/icons/dice-outline.svg');
 }
 
 .spin {

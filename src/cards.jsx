@@ -22,8 +22,8 @@ export default class Card extends Component {
         };
     }
 
-    showDisableOption(){
-        return(
+    showDisableOption() {
+        return (
             <button className='submit exit' onClick={() => {
                 this.setState({ popupActive: !this.state.popupActive });
                 console.log(this.state.popupActive);
@@ -31,8 +31,8 @@ export default class Card extends Component {
         );
     }
 
-    showBookmarkOption(){
-        return(
+    showBookmarkOption() {
+        return (
             <button className={this.state.bookmarked ? 'submit bookmarkactive' : 'submit bookmark'} onClick={event => {
                 this.setState({ bookmarked: !this.state.bookmarked }, () => {
                     console.log("Bookmark status: " + this.state.bookmarked);
@@ -45,7 +45,7 @@ export default class Card extends Component {
         if (this.props.title || this.props.desc !== undefined) {
             return (
                 <div className='card-container'>
-                    <div className='card'>
+                    <div className='card' style={{ width: this.props.width }}>
                         {this.props.allowDisable ? this.showDisableOption() : null}
                         <h1 className='card-title'>
                             {this.props.title}

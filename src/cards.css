@@ -1,4 +1,3 @@
-
 .card-container {
     display: flex;
     flex-direction: column;
@@ -6,6 +5,8 @@
 }
 
 .card {
+    background-color: white;
+    color: black;
     text-align: center;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -91,39 +92,39 @@ Optionally clear the text when the user focuses on it
     padding: 15px;
     background-repeat: no-repeat;
     background-size: cover;
-    background-image: url('./assets/arrow-forward-circle-outline.svg');
+    background-image: url('./assets/icons/arrow-forward-circle-outline.svg');
 }
 
 .submitactive {
-    background-image: url('./assets/arrow-forward-circle.svg');
+    background-image: url('./assets/icons/arrow-forward-circle.svg');
 }
 
 .bookmark {
     padding: 14px;
-    background-image: url('./assets/bookmark-outline.svg');
+    background-image: url('./assets/icons/bookmark-outline.svg');
 }
 
 .bookmarkactive {
     padding: 14px;
-    background-image: url('./assets/bookmark-filled.svg');
+    background-image: url('./assets/icons/bookmark-filled.svg');
 }
 
 .add {
-    background-image: url('./assets/add-circle-outline.svg');
+    background-image: url('./assets/icons/add-circle-outline.svg');
 }
 
 .addactive {
-    background-image: url('./assets/add-circle.svg');
+    background-image: url('./assets/icons/add-circle.svg');
 }
 
 .exit {
     margin-left: -100%;
-    background-image: url('./assets/close-outline.svg');
+    background-image: url('./assets/icons/close-outline.svg');
 }
 
 .cardicon {
     padding: 14px;
-    background-image: url('./assets/card-outline.svg');
+    background-image: url('./assets/icons/card-outline.svg');
 }
 
 .btnlabel {

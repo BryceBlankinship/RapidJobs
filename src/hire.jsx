@@ -1,4 +1,4 @@
-import { React, Component, createRef } from 'react';
+import { React, Component } from 'react';
 import './hire.css';
 import Card from './cards.jsx';
 import Search from './search.jsx';
@@ -14,13 +14,13 @@ import Search from './search.jsx';
  */
 
 export default class HireView extends Component {
-    constructor(props) {
+    constructor(props){
         super(props);
     }
 
     render() {
         return (
-            <div className='hireview'>
+            <div className="hireview">
                 <h1 className='heading'>How Can We Help?</h1>
                 <Search placeholder='Search'></Search>
                 <div className="hire-container">

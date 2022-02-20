@@ -12,24 +12,28 @@ import './jobs.css';
 import './navbar.css';
 
 
+// going to save the navbar's state in sessionStorage so if you refresh it will stay
 export default class Navbar extends Component {
     constructor(props){
         super(props);
         this.state = { option: 0 };
     }
 
+    setNavbarState(index){
+        this.setState({option:index});
+        window.sessionStorage.setItem("option", index.toString());
+    }
+
     render(){
         return (
             <div className='center'>
                 <ul className='navbar'>
-                    <li><Link className={this.state.option === 0 ? 'active' : ''} to="/" onClick={() => this.setState({option:0})}>Dashboard</Link></li>
-                    <li><Link className={this.state.option === 1 ? 'active' : ''} to="/saved" onClick={() => this.setState({option:1})}>Saved</Link></li>
-                    <li><Link className={this.state.option === 2 ? 'active' : ''} to="/hire" onClick={() => this.setState({option:2})}>Hire</Link></li>
-                    <li><Link className={this.state.option === 3 ? 'active' : ''} to="/wallet" onClick={() => this.setState({option:3})}>Wallet</Link></li>
-                    <li className='right'><Link className={this.state.option === 4 ? 'active' : ''} to="/auth" onClick={() => {
-                        this.setState({option:4});
-                    }}>Sign in</Link></li>
-                    <li className='right'><Link className={this.state.option === 5 ? 'active' : ''} to="/auth" onClick={() => this.setState({option:5})}>Sign Up</Link></li>
+                    <li><Link className={window.sessionStorage.getItem("option") === "0" ? 'active' : ''} to="/" onClick={() => this.setNavbarState(0)}>Dashboard</Link></li>
+                    <li><Link className={window.sessionStorage.getItem("option") === "1" ? 'active' : ''} to="/saved" onClick={() => this.setNavbarState(1)}>Saved</Link></li>
+                    <li><Link className={window.sessionStorage.getItem("option") === "2" ? 'active' : ''} to="/hire" onClick={() => this.setNavbarState(2)}>Hire</Link></li>
+                    <li><Link className={window.sessionStorage.getItem("option") === "3" ? 'active' : ''} to="/wallet" onClick={() => this.setNavbarState(3)}>Wallet</Link></li>
+                    <li className='right'><Link className={window.sessionStorage.getItem("option") === "4" ? 'active' : ''} to="/auth" onClick={() => this.setNavbarState(4)}>Sign in</Link></li>
+                    <li className='right'><Link className={window.sessionStorage.getItem("option") === "5" ? 'active' : ''} to="/auth" onClick={() => this.setNavbarState(5)}>Sign Up</Link></li>
                     <li className='right'>{<NotificationBell/>}</li>
                 </ul>
             </div>

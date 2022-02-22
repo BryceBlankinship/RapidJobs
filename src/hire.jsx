@@ -13,9 +13,20 @@ import Search from './search.jsx';
  * to their stackoverflow question and it'll turn into a 'pretty' card-job :)
  */
 
+
 export default class HireView extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
+        this.state = {
+            titles: []
+        }
+    }
+
+    createList(){
+        for (let i = 0; i < 15; i++) {
+            this.state.titles.push('test' + i);
+        }
+        
     }
 
     render() {
@@ -25,11 +36,10 @@ export default class HireView extends Component {
                 <Search placeholder='Search'></Search>
                 <div className="hire-container">
                     <div className="left-column">
-                        <Card width="200px" title="test" />
-                        <Card width="200px" title="test" />
-                        <Card width="200px" title="test" />
-                        <Card width="200px" title="test" />
-                        <Card width="200px" title="test" />
+                        {this.state.titles.forEach(element => {
+                            console.log(element);
+                            return <Card title={element}/>
+                        })}
                     </div>
                     <div className="middle-column">
                         <Card width="200px" title="test" />

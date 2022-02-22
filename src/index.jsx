@@ -12,11 +12,13 @@ import './jobs.css';
 import './navbar.css';
 
 
-// going to save the navbar's state in sessionStorage so if you refresh it will stay
 export default class Navbar extends Component {
     constructor(props){
         super(props);
         this.state = { option: 0 };
+        if(!window.sessionStorage.getItem("option")) {
+            window.sessionStorage.setItem("option", 0);
+        }
     }
 
     setNavbarState(index){

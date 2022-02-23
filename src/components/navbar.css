@@ -101,3 +101,13 @@ li input {
 .notification{
   margin-bottom: 5px;
 }
+
+.moon {
+  background-image: url('./assets/icons/moon-outline.svg');
+  margin-right: 15px;
+}
+
+.sun {
+  background-image: url('./assets/icons/sun-outline.svg');
+  margin-right: 15px;
+}

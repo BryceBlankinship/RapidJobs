@@ -1,15 +1,16 @@
 import { React, Component, useState } from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-import AuthToggle from './auth.jsx';
-import Jobs from './jobs.jsx';
-import HireView from './hire.jsx';
-import Wallet from './wallet.jsx';
-import Footer from './footer.jsx';
-import { default as NotificationBell } from './notifications.jsx';
-import { default as Card, EditCard } from './cards.jsx';
-import './jobs.css';
-import './navbar.css';
+import AuthToggle from './components/auth.jsx';
+import Jobs from './components/jobs.jsx';
+import HireView from './components/hire.jsx';
+import Wallet from './components/wallet.jsx';
+import Footer from './components/footer.jsx';
+import { default as NotificationBell } from './components/notifications.jsx';
+import { default as Card, EditCard } from './components/cards.jsx';
+import DarkLightToggle from './components/dark-light.jsx';
+import './components/jobs.css';
+import './components/navbar.css';
 
 
 export default class Navbar extends Component {
@@ -37,6 +38,7 @@ export default class Navbar extends Component {
                     <li className='right'><Link className={window.sessionStorage.getItem("option") === "4" ? 'active' : ''} to="/auth" onClick={() => this.setNavbarState(4)}>Sign in</Link></li>
                     <li className='right'><Link className={window.sessionStorage.getItem("option") === "5" ? 'active' : ''} to="/auth" onClick={() => this.setNavbarState(5)}>Sign Up</Link></li>
                     <li className='right'>{<NotificationBell/>}</li>
+                    <li className='right'>{<DarkLightToggle/>}</li>
                 </ul>
             </div>
         );

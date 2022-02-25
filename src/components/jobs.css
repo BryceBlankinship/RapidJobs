@@ -1,6 +1,11 @@
 html{
     margin: 0;
-    padding: 0;    
+    padding: 0;
+    background-color: var(--background);
+}
+
+[data-theme='dark'] {
+    --background: #353D4B;
 }
 
 button {
@@ -29,8 +34,4 @@ button {
     padding: 20px 40px;
     -webkit-box-shadow: 0 10px 25px rgba(92, 99, 105, 0.2);
             box-shadow: 0 10px 25px rgba(92, 99, 105, 0.2);
-}
-
-.dice {
-    
 }

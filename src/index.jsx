@@ -67,11 +67,11 @@ export function JobPostings(props) {
     }
 
     return (
-        <div className='jobs-list'>
+        <div className='jobs-list' data-theme='dark'>
             <EditCard />
 
             {props.list.map((t, i) => {
-                return <div key={i}><Card allowDisable={false} allowBookmark={true} title={t} desc="Just your run-of-the-mill description" /></div>
+                return <Card key={i} allowDisable={false} allowBookmark={true} title={t} desc="Just your run-of-the-mill description" />
             })}
 
             {displayDiceTooltip()}

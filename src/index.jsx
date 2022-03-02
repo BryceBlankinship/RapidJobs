@@ -12,6 +12,7 @@ import DarkLightToggle from './components/dark-light.jsx';
 import './components/jobs.css';
 import './components/navbar.css';
 import ThemeContextProvider, { Theme } from './contexts/theme.jsx';
+import RandomizeDice from './components/randomizeJobs.jsx';
 
 
 export default class Navbar extends Component {
@@ -61,18 +62,7 @@ for (let i = 0; i < 50; i++) {
 }
 
 export function JobPostings(props) {
-    const [showDiceTooltip, setShowDiceTooltip] = useState(false);
-    const [diceClicked, setDiceClicked] = useState(false);
 
-    function displayDiceTooltip() {
-        if (showDiceTooltip) {
-            return (
-                <div className="dice-tooltip">Randomize Jobs!</div>
-            );
-        } else {
-            return null;
-        }
-    }
 
     return (
         <div className='jobs-list'>
@@ -82,15 +72,7 @@ export function JobPostings(props) {
                 return <Card key={i} allowDisable={false} allowBookmark={true} title={t} desc="Just your run-of-the-mill description" />
             })}
 
-            {displayDiceTooltip()}
-            <div className={diceClicked ? "logo dice spin" : "logo dice"} onMouseEnter={() => {
-                setShowDiceTooltip(true);
-            }} onMouseLeave={() => {
-                setShowDiceTooltip(false);
-            }} onClick={() => {
-                // animation plays every other click, find alternative to this
-                setDiceClicked(!diceClicked);
-            }}></div>
+            <RandomizeDice/>
         </div>
     );
 
@@ -99,7 +81,14 @@ export function JobPostings(props) {
 export class Container extends Component {
     render(){
         return(
-            <div className='main-container'>test</div>
+            <Theme.Consumer>{(context) => {
+                const { isLightTheme, light, dark } = context;
+                const theme = isLightTheme ? light : dark;
+                return(
+                    <div className='main-container' style={{ margin: 0, padding: 0, background: theme.bg }}>{this.props.children}</div>
+                );
+            }}
+            </Theme.Consumer>
         );
     }
 }
@@ -118,7 +107,6 @@ ReactDOM.render(
             </BrowserRouter>
         </Container>
     </ThemeContextProvider>
-
     ,
     document.getElementById("root")
 );

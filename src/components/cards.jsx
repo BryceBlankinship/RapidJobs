@@ -25,21 +25,38 @@ export default class Card extends Component {
 
     showDisableOption() {
         return (
-            <button className='submit exit' onClick={() => {
-                this.setState({ popupActive: !this.state.popupActive });
-                console.log(this.state.popupActive);
-            }}></button>
+            <Theme.Consumer>{(context) => {
+                const { isLightMode, light, dark } = context;
+                const theme = isLightMode ? light : dark;
+                return (
+                    <button className='submit exit' style={{ backgroundColor: theme.text }} onClick={() => {
+                        this.setState({ popupActive: !this.state.popupActive });
+                        console.log(this.state.popupActive);
+                    }}></button>
+                );
+            }}
+            </Theme.Consumer>
         );
     }
 
     showBookmarkOption() {
         return (
-            <button className={this.state.bookmarked ? 'submit bookmarkactive' : 'submit bookmark'} onClick={event => {
-                this.setState({ bookmarked: !this.state.bookmarked }, () => {
-                    console.log("Bookmark status: " + this.state.bookmarked);
-                });
-            }}></button>
-        );
+            <Theme.Consumer>{(context) => {
+                const { isLightMode, light, dark } = context;
+                const theme = isLightMode ? light : dark;
+
+                return (
+                    <button className={this.state.bookmarked ? 'submit bookmarkactive' : 'submit bookmark'} style={{ backgroundColor: theme.text }} onClick={event => {
+                        this.setState({ bookmarked: !this.state.bookmarked }, () => {
+                            console.log("Bookmark status: " + this.state.bookmarked);
+                        });
+                    }}></button>
+                );
+            }}
+            </Theme.Consumer>
+        )
+
+
     }
 
     render() {
@@ -95,7 +112,7 @@ export class EditCard extends Component {
                                     <span className='textarea' onInput={e => this.setState({ desc: e.currentTarget.innerText })} contentEditable></span>
                                 </p>
 
-                                <button className={this.state.submitActive ? 'submit submitactive' : 'submit'} onClick={event => {
+                                <button className={this.state.submitActive ? 'submit right-arrowactive' : 'submit right-arrow'} style={{ backgroundColor: theme.text }} onClick={event => {
                                     /*
                                         Add job to the database (async)
         
@@ -125,7 +142,7 @@ export class WalletCard extends Component {
     }
 
     render() {
-        return(
+        return (
             <Theme.Consumer>{(context) => {
                 const { isLightMode, light, dark } = context;
                 const theme = isLightMode ? light : dark;
@@ -140,14 +157,14 @@ export class WalletCard extends Component {
                                     <p className='card-desc'>
                                         Balance: $0
                                     </p>
-        
+
                                     <button className={this.state.submitActive ? 'submit addactive' : 'submit add'} onClick={event => {
                                         /*
                                         *   Add funds (Stripe most likely)
                                         */
                                         this.setState({ submitActive: !this.state.submitActive }, () => {
                                             console.log("add funds state: " + this.state.submitActive);
-        
+
                                         });
                                     }}></button>
                                     <div className="btnlabel">Add Funds</div>
@@ -174,7 +191,7 @@ export class WalletCard extends Component {
                         </div>
                     );
                 }
-            }}                
+            }}
             </Theme.Consumer>
         );
 

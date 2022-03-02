@@ -41,7 +41,7 @@ hr {
     padding: 20px;
     bottom: 20px;
     left: 20px;
-    background-image: url('./assets/icons/dice-outline.svg');
+    mask-image: url('./assets/icons/dice-outline.svg');
 }
 
 .spin {

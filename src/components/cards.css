@@ -19,7 +19,7 @@
 }
 
 .editcard {
-    margin-top: 50px;
+    margin-top: 60px;
 }
 
 .walletcard {
@@ -35,6 +35,7 @@
 .card-desc {
     font-size: 16px;
     font-weight: normal;
+    overflow-x: hidden !important;
 }
 
 .card-title>input {
@@ -92,39 +93,42 @@ Optionally clear the text when the user focuses on it
     padding: 15px;
     background-repeat: no-repeat;
     background-size: cover;
-    background-image: url('./assets/icons/arrow-forward-circle-outline.svg');
 }
 
-.submitactive {
-    background-image: url('./assets/icons/arrow-forward-circle.svg');
+.right-arrow {
+    mask-image: url('./assets/icons/arrow-forward-circle-outline.svg');
+}
+
+.right-arrowactive {
+    mask-image: url('./assets/icons/arrow-forward-circle.svg');
 }
 
 .bookmark {
     padding: 14px;
-    background-image: url('./assets/icons/bookmark-outline.svg');
+    mask-image: url('./assets/icons/bookmark-outline.svg');
 }
 
 .bookmarkactive {
     padding: 14px;
-    background-image: url('./assets/icons/bookmark-filled.svg');
+    mask-image: url('./assets/icons/bookmark-filled.svg');
 }
 
 .add {
-    background-image: url('./assets/icons/add-circle-outline.svg');
+    mask-image: url('./assets/icons/add-circle-outline.svg');
 }
 
 .addactive {
-    background-image: url('./assets/icons/add-circle.svg');
+    mask-image: url('./assets/icons/add-circle.svg');
 }
 
 .exit {
     margin-left: -100%;
-    background-image: url('./assets/icons/close-outline.svg');
+    mask-image: url('./assets/icons/close-outline.svg');
 }
 
 .cardicon {
     padding: 14px;
-    background-image: url('./assets/icons/card-outline.svg');
+    mask-image: url('./assets/icons/card-outline.svg');
 }
 
 .btnlabel {

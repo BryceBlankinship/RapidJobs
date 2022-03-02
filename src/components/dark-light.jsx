@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import { Theme } from '../contexts/theme';
 import './navbar.css';
 
 export default class DarkLightToggle extends Component {
@@ -9,22 +10,17 @@ export default class DarkLightToggle extends Component {
         };
     }
 
+    static contextType = Theme;
+
     render() {
+        const { setLightMode, setDarkMode } = this.context;
         return (
             <a className={this.state.active ? 'icon sun' : 'icon moon'} onClick={() => {
                 this.setState({ active: !this.state.active });
                 if(this.state.active){
-                    /*
-                    Dark mode colors
-                    Background: #353D4B
-                    Text: #CECECE
-                    Highlight: #519AAC (undecided)
-                    */
-                    
-                    
-                    // repaint everything dark mode :D
+                    setDarkMode();
                 }else{
-                    // repaint everything light mode :D
+                    setLightMode();
                 }
             }}></a>
         );

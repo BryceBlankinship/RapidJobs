@@ -129,6 +129,8 @@ export class WalletCard extends Component {
         };
     }
 
+    static contextType = ThemeContext;
+
     render() {
         const { isLightTheme, light, dark } = this.context;
         const theme = isLightTheme ? light : dark;

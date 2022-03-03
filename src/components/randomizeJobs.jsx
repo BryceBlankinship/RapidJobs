@@ -6,8 +6,8 @@ export default function RandomizeDice() {
     const [diceClicked, setDiceClicked] = useState(false);
     const themeContext = useContext(ThemeContext);
 
-    const { isLightMode, light, dark } = themeContext;
-    const theme = isLightMode ? light : dark;
+    const { isLightTheme, light, dark } = themeContext;
+    const theme = isLightTheme ? light : dark;
 
     function displayDiceTooltip() {
         if (showDiceTooltip) {

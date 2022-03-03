@@ -20,19 +20,19 @@ export default class ThemeContextProvider extends Component {
         this.setState({ isLightTheme: !this.state.isLightTheme });
     }
 
-    setLightMode = () => {
+    setLightTheme = () => {
         this.setState({ isLightTheme: true });
         console.log("light mode active");
     }
 
-    setDarkMode = () => {
+    setDarkTheme = () => {
         this.setState({ isLightTheme: false });
         console.log("dark mode active");
     }
 
     render(){
         return(
-            <ThemeContext.Provider value={{...this.state, toggleTheme: this.toggleTheme }}>
+            <ThemeContext.Provider value={{...this.state, toggleTheme: this.toggleTheme, setLightTheme: this.setLightTheme, setDarkTheme: this.setDarkTheme }}>
                 {this.props.children}
             </ThemeContext.Provider>
         )

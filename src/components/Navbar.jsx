@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import ThemeContext from '../contexts/theme.jsx';
+import { ThemeContext } from '../contexts/theme.jsx';
 import NotificationBell from './notifications.jsx';
 import ThemeToggler from './ThemeToggler';
 import './navbar.css';
@@ -26,7 +26,7 @@ export default class Navbar extends Component {
         const theme = isLightTheme ? light : dark;
         return (
             <div className='center'>
-                <ul className='navbar'>
+                <ul className='navbar' style={{ backgroundColor: theme.navbg }}>
                     <li><Link className={window.sessionStorage.getItem("option") === "0" ? 'active' : ''} to="/" onClick={() => this.setNavbarState(0)}>Dashboard</Link></li>
                     <li><Link className={window.sessionStorage.getItem("option") === "1" ? 'active' : ''} to="/saved" onClick={() => this.setNavbarState(1)}>Saved</Link></li>
                     <li><Link className={window.sessionStorage.getItem("option") === "2" ? 'active' : ''} to="/hire" onClick={() => this.setNavbarState(2)}>Hire</Link></li>

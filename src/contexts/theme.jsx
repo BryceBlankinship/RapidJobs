@@ -11,23 +11,26 @@ export const ThemeContext = createContext();
 
 export default class ThemeContextProvider extends Component {
     state = {
-        isLightTheme: true,
-        light: { text: '#000000', highlight: '#f3f3f3', bg: '#fff' },
-        dark: { text: '#CECECE', highlight: '#519AAC', bg: '#353D4B' }
+        isLightTheme: window.localStorage.getItem('isLightTheme') || true,
+        light: { text: '#000000', highlight: '#f3f3f3', bg: '#fff', navtext: '', navhighlight: '', navbg: '#f3f3f3', shadow: '0 10px 25px rgba(92, 99, 105, 0.2)' },
+        dark: { text: '#CECECE', highlight: '#519AAC', contrastbg: '#323948', bg: '#353D4B', navtext: '', navhighlight: '', navbg: '#353D4B', shadow: '0 10px 25px rgba(206, 206, 206, 0.1)' }
     }
 
     toggleTheme = () => {
         this.setState({ isLightTheme: !this.state.isLightTheme });
+        window.localStorage.setItem('isLightTheme', this.state.isLightTheme);
     }
 
     setLightTheme = () => {
         this.setState({ isLightTheme: true });
-        console.log("light mode active");
+        window.localStorage.setItem('isLightTheme', 'true');
+        console.log(window.localStorage.getItem('isLightTheme'));
     }
 
     setDarkTheme = () => {
         this.setState({ isLightTheme: false });
-        console.log("dark mode active");
+        window.localStorage.setItem('isLightTheme', 'false');
+        console.log(window.localStorage.getItem('isLightTheme'));
     }
 
     render(){

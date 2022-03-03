@@ -1,11 +1,5 @@
-/**
- * This is gonna be interesting
- * 
- * Edit: I was right
- */
-
-import { useState, Component } from "react";
-import { useHistory } from 'react-router-dom';
+import { Component } from "react";
+import { ThemeContext } from "../contexts/theme";
 import './navbar.css';
 
 export default class NotificationBell extends Component {
@@ -18,6 +12,8 @@ export default class NotificationBell extends Component {
             moneyCount: 5
         };
     }
+
+    static contextType = ThemeContext;
 
     showBell(){
         return (
@@ -83,8 +79,5 @@ export default class NotificationBell extends Component {
         }else{
             return(this.showBell());
         }
-
-        
     }
-
 }

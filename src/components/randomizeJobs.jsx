@@ -1,4 +1,4 @@
-import React, { Component, useState, useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import { ThemeContext } from '../contexts/theme';
 
 export default function RandomizeDice() {

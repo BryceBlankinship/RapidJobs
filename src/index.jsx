@@ -1,14 +1,12 @@
-import { React, Component, useState } from 'react';
+import { React, Component } from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import AuthToggle from './components/auth.jsx';
 import Jobs from './components/jobs.jsx';
 import HireView from './components/hire.jsx';
 import Wallet from './components/wallet.jsx';
 import Footer from './components/footer.jsx';
-import { default as NotificationBell } from './components/notifications.jsx';
 import { default as Card, EditCard } from './components/cards.jsx';
-import ThemeToggler from './components/ThemeToggler.jsx';
 import './components/jobs.css';
 import './components/navbar.css';
 import ThemeContextProvider, { ThemeContext } from './contexts/theme.jsx';
@@ -45,7 +43,7 @@ export class Container extends Component {
         const { isLightTheme, light, dark } = this.context;
         const theme = isLightTheme ? light : dark;
         return (
-            <div className='main-container' style={{ margin: 0, padding: 0, background: theme.bg }}>{this.props.children}</div>
+            <div className='main-container' style={{ margin: 0, padding: 0, background: theme.contrastbg }}>{this.props.children}</div>
         );
 
     }

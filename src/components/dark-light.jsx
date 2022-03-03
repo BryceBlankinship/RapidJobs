@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { Theme } from '../contexts/theme';
+import { ThemeContext } from '../contexts/theme';
 import './navbar.css';
 
 export default class DarkLightToggle extends Component {
@@ -10,7 +10,7 @@ export default class DarkLightToggle extends Component {
         };
     }
 
-    static contextType = Theme;
+    static contextType = ThemeContext;
 
     render() {
         const { setLightMode, setDarkMode } = this.context;

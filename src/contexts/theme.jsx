@@ -1,6 +1,6 @@
 import React, { createContext, Component } from 'react';
 
-export const Theme = createContext();
+export const ThemeContext = createContext();
 
 /*
     Dark mode colors
@@ -32,9 +32,9 @@ export default class ThemeContextProvider extends Component {
 
     render(){
         return(
-            <Theme.Provider value={{...this.state, toggleTheme: this.toggleTheme }}>
+            <ThemeContext.Provider value={{...this.state, toggleTheme: this.toggleTheme }}>
                 {this.props.children}
-            </Theme.Provider>
+            </ThemeContext.Provider>
         )
     }
 }

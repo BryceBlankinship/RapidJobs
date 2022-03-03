@@ -1,51 +1,37 @@
-import React, { Component, useState } from 'react';
-import { Theme } from '../contexts/theme';
+import React, { Component, useState, useContext } from 'react';
+import { ThemeContext } from '../contexts/theme';
 
 export default function RandomizeDice() {
     const [showDiceTooltip, setShowDiceTooltip] = useState(false);
     const [diceClicked, setDiceClicked] = useState(false);
+    const themeContext = useContext(ThemeContext);
+
+    const { isLightMode, light, dark } = themeContext;
+    const theme = isLightMode ? light : dark;
 
     function displayDiceTooltip() {
-        return(
-            <Theme.Consumer>{(context) => {
-                const { isLightMode, light, dark } = context;
-                const theme = isLightMode ? light : dark;
-                if (showDiceTooltip) {
-                    return (
-                        <div className="dice-tooltip" style={{ color: theme.text }}>Randomize Jobs!</div>
-                    );
-                } else {
-                    return null;
-                }
-            }}
-            </Theme.Consumer>
-
-        );
-
+        if (showDiceTooltip) {
+            return (
+                <div className="dice-tooltip" style={{ color: theme.text }}>Randomize Jobs!</div>
+            );
+        } else {
+            return null;
+        }
     }
 
+
     return (
-        <Theme.Consumer>{(context) => {
-            const { isLightMode, light, dark } = context;
-            const theme = isLightMode ? light : dark;
-            return (
-                <>
-                    {displayDiceTooltip()}
-                    <div className={diceClicked ? "logo dice spin" : "logo dice"} style={{ backgroundColor: theme.text }} onMouseEnter={() => {
-                        setShowDiceTooltip(true);
-                    }} onMouseLeave={() => {
-                        setShowDiceTooltip(false);
-                    }} onClick={() => {
-                        // animation plays every other click, find alternative to this
-                        setDiceClicked(!diceClicked);
-                    }}></div>
-                </>
-            );
-        }}
-        </Theme.Consumer>
-
+        <>
+            {displayDiceTooltip()}
+            <div className={diceClicked ? "logo dice spin" : "logo dice"} style={{ backgroundColor: theme.text }} onMouseEnter={() => {
+                setShowDiceTooltip(true);
+            }} onMouseLeave={() => {
+                setShowDiceTooltip(false);
+            }} onClick={() => {
+                // animation plays every other click, find alternative to this
+                setDiceClicked(!diceClicked);
+            }}></div>
+        </>
     );
-
-
 
 }

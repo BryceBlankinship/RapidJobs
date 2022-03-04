@@ -1,3 +1,22 @@
+# Welcome To RapidJobs
+Git commits/comments don't really allow me to be detailed in the information/code I push to the repo,
+so at the top of the readme (like right here) I am going to keep a general status update for the repo.
+
+# Latest (3/3/22):
+- Going to start breaking the component tree into smaller more reusable components
+- May introduce styled components or a better way of bundling css to specific components to make this better
+- React documentation states that css is generally faster than css-in-js solutions, but I am going to find benchmarks on this to confirm/make a decision
+- Ideally I want to move away from using css animations and controlling them via class names as it is very difficult if not impossible with more complex/nested css, to solve this I'm going to learn/implement the react-spring library (the only animation at the time of writing is the spinning dice at the bottom left of the dashboard page)
+- Also I need to figure out how nesting components work, so that I can create a base component and branch others off of it (currently I have 4 separate Card components that all should really be extended off of the Card component)
+
+## Side notes:
+- This was actually a pretty big patch today, although not a lot visually got done, I resolved a couple bugs that were occuring with styling for mozilla, im not even going to test Internet Explorer, I don't think I ever will.
+- I benefit from the aim of this website being for developers, and technical recruiters/hiring managers, so having a super modern stack is going to be a good choice + don't have to worry too much about compatibility (im only going to worry about Chrome and Firefox for now)
+- With that being said, I'm getting ready to start learning some React Native as I want to approach everything from a React-first perspective so that I can truly write once, deploy anywhere and not be writing very specific JSX code where half my components won't work in a native environment.
+
+<br>
+<br>
+<br>
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

@@ -1,9 +1,13 @@
-import { React, Component } from 'react';
+import { React, useState, Component } from 'react';
 import { ThemeContext } from '../contexts/theme';
 import './cards.css';
 
 // Small popup/tooltip card that will appear onHover to explain an objects behavior or action
 export class Popup extends Component {
+    constructor(props) {
+        super(props);
+    }
+
     render() {
         return (
             <div>test</div>
@@ -56,7 +60,7 @@ export default class Card extends Component {
         if (this.props.title || this.props.desc !== undefined) {
             return (
                 <div className='card-container'>
-                    <div className='card' style={{ width: this.props.width, background: theme.bg, color: theme.text, boxShadow: theme.shadow }}>
+                    <div className='card' style={{ width: this.props.width, background: theme.bg, color: theme.text }}>
                         {this.props.allowDisable ? this.showDisableOption() : null}
                         <h1 className='card-title'>
                             {this.props.title}
@@ -91,7 +95,7 @@ export class EditCard extends Component {
         return (
             <div className='card-container'>
                 <div className='editcard'>
-                    <div className='card' style={{ background: theme.bg, color: theme.text, boxShadow: theme.shadow }}>
+                    <div className='card' style={{ background: theme.bg, color: theme.text }}>
                         <h1 className='card-title'>
                             <input className='titletext' style={{ background: theme.bg, color: theme.text }} onChange={e => this.setState({ title: e.currentTarget.value })} placeholder='Who do you need?'></input>
                         </h1>
@@ -134,7 +138,7 @@ export class WalletCard extends Component {
             return (
                 <div className='card-container'>
                     <div className='walletcard'>
-                        <div className="card" style={{ background: theme.bg, color: theme.text, boxShadow: theme.shadow }}>
+                        <div className="card" style={{ background: theme.bg, color: theme.text }}>
                             <h1 className='card-title'>
                                 Your Wallet
                             </h1>

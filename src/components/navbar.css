@@ -34,7 +34,6 @@
   list-style-type: none;
   margin: 0;
   padding: 0;
-  overflow: hidden;
   border: 1px solid #777;
   background-color: #f3f3f3;
   border-radius: 8px;
@@ -61,7 +60,7 @@ li a:hover:not(.active) {
 }
 
 li a.active {
-  color: white;
+  color: white !important;
   background-color: blue;
 }
 
@@ -79,12 +78,12 @@ li input {
 }
 
 .notification-bell {
-  background-image: url("./assets/icons/notifications-outline.svg");
+  mask-image: url("./assets/icons/notifications-outline.svg");
   margin-right: 10px;
 }
 
 .notification-bell-active {
-  background-image: url("./assets/icons/notifications.svg");
+  mask-image: url("./assets/icons/notifications.svg");
   margin-right: 10px;
 }
 
@@ -119,11 +118,11 @@ li input {
 }
 
 .moon {
-  background-image: url('./assets/icons/moon-outline.svg');
+  mask-image: url('./assets/icons/moon-outline.svg');
   margin-right: 15px;
 }
 
 .sun {
-  background-image: url('./assets/icons/sun-outline.svg');
+  mask-image: url('./assets/icons/sun-outline.svg');
   margin-right: 15px;
 }

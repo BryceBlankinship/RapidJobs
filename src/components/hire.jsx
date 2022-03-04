@@ -36,10 +36,11 @@ export default class HireView extends Component {
                 <Search placeholder='Search'></Search>
                 <div className="hire-container">
                     <div className="left-column">
-                        {this.state.titles.forEach(element => {
-                            console.log(element);
-                            return <Card title={element}/>
-                        })}
+                        <Card width="200px" title="test" />
+                        <Card width="200px" title="test" />
+                        <Card width="200px" title="test" />
+                        <Card width="200px" title="test" />
+                        <Card width="200px" title="test" />
                     </div>
                     <div className="middle-column">
                         <Card width="200px" title="test" />

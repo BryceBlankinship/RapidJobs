@@ -13,9 +13,10 @@ export default class ThemeToggler extends Component {
     static contextType = ThemeContext;
 
     render() {
-        const { setLightTheme, setDarkTheme } = this.context;
+        const { setLightTheme, setDarkTheme, isLightTheme, light, dark } = this.context;
+        const theme = isLightTheme ? light : dark;
         return (
-            <a className={this.state.active ? 'icon sun' : 'icon moon'} onClick={() => {
+            <a className={this.state.active ? 'icon sun' : 'icon moon'} style={{ backgroundColor: theme.text }} onClick={() => {
                 this.setState({ active: !this.state.active });
                 if(this.state.active){
                     setLightTheme();

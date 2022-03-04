@@ -26,13 +26,13 @@ export default class Navbar extends Component {
         const theme = isLightTheme ? light : dark;
         return (
             <div className='center'>
-                <ul className='navbar' style={{ backgroundColor: theme.navbg }}>
-                    <li><Link className={window.sessionStorage.getItem("option") === "0" ? 'active' : ''} to="/" onClick={() => this.setNavbarState(0)}>Dashboard</Link></li>
-                    <li><Link className={window.sessionStorage.getItem("option") === "1" ? 'active' : ''} to="/saved" onClick={() => this.setNavbarState(1)}>Saved</Link></li>
-                    <li><Link className={window.sessionStorage.getItem("option") === "2" ? 'active' : ''} to="/hire" onClick={() => this.setNavbarState(2)}>Hire</Link></li>
-                    <li><Link className={window.sessionStorage.getItem("option") === "3" ? 'active' : ''} to="/wallet" onClick={() => this.setNavbarState(3)}>Wallet</Link></li>
-                    <li className='right'><Link className={window.sessionStorage.getItem("option") === "4" ? 'active' : ''} to="/auth" onClick={() => this.setNavbarState(4)}>Sign in</Link></li>
-                    <li className='right'><Link className={window.sessionStorage.getItem("option") === "5" ? 'active' : ''} to="/auth" onClick={() => this.setNavbarState(5)}>Sign Up</Link></li>
+                <ul className='navbar' style={{ backgroundColor: theme.navbg, color: theme.text }}>
+                    <li><Link className={window.sessionStorage.getItem("option") === "0" ? 'active' : ''} style={{ color: theme.navtext }} to="/" onClick={() => this.setNavbarState(0)}>Dashboard</Link></li>
+                    <li><Link className={window.sessionStorage.getItem("option") === "1" ? 'active' : ''} style={{ color: theme.navtext }} to="/saved" onClick={() => this.setNavbarState(1)}>Saved</Link></li>
+                    <li><Link className={window.sessionStorage.getItem("option") === "2" ? 'active' : ''} style={{ color: theme.navtext }} to="/hire" onClick={() => this.setNavbarState(2)}>Hire</Link></li>
+                    <li><Link className={window.sessionStorage.getItem("option") === "3" ? 'active' : ''} style={{ color: theme.navtext }} to="/wallet" onClick={() => this.setNavbarState(3)}>Wallet</Link></li>
+                    <li className='right'><Link className={window.sessionStorage.getItem("option") === "4" ? 'active' : ''} style={{ color: theme.navtext }} to="/auth" onClick={() => this.setNavbarState(4)}>Sign in</Link></li>
+                    <li className='right'><Link className={window.sessionStorage.getItem("option") === "5" ? 'active' : ''} style={{ color: theme.navtext }} to="/auth" onClick={() => this.setNavbarState(5)}>Sign Up</Link></li>
                     <li className='right'>{<NotificationBell />}</li>
                     <li className='right'>{<ThemeToggler />}</li>
                 </ul>

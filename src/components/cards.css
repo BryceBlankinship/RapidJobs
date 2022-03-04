@@ -20,6 +20,9 @@
 
 .editcard {
     margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .walletcard {
@@ -43,6 +46,7 @@
     border: 0;
     font-size: 24px;
     font-weight: bold;
+    width: 100%;
 }
 
 .card-title>input:focus {
@@ -51,11 +55,11 @@
 
 .card-title>input::placeholder {
     color: #777;
+    opacity: 1;
 }
 
 .textarea {
     display: block;
-    width: 100%;
     overflow: hidden;
     resize: none;
     min-height: 40px;

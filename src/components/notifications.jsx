@@ -16,8 +16,10 @@ export default class NotificationBell extends Component {
     static contextType = ThemeContext;
 
     showBell(){
+        const { isLightTheme, light, dark } = this.context;
+        const theme = isLightTheme ? light : dark;
         return (
-            <a className={this.state.active ? 'icon notification-bell-active' : 'icon notification-bell'} onClick={() => {
+            <a className={this.state.active ? 'icon notification-bell-active' : 'icon notification-bell'} style={{ backgroundColor: theme.text }} onClick={() => {
                 this.setState({ active: !this.state.active }, () => {
                     console.log(this.state.active);
                 });
@@ -51,8 +53,11 @@ export default class NotificationBell extends Component {
          * 
          * Examples: 8 new jobs, 11 new messages, $237 has been received from _.
          */
+
+         const { isLightTheme, light, dark } = this.context;
+         const theme = isLightTheme ? light : dark;
         return(
-            <div className="notification-container">
+            <div className="notification-container" style={{ backgroundColor: theme.bg }}>
                 <div className="notification-title">Notifications</div>
                 <hr></hr>
                 <div className="notification-content">

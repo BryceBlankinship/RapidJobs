@@ -1,4 +1,4 @@
-import { React, Component, useState, Fragment } from 'react';
+import { React, useState } from 'react';
 import './auth.css';
 
 

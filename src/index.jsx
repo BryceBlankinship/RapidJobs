@@ -12,6 +12,7 @@ import './components/navbar.css';
 import ThemeContextProvider, { ThemeContext } from './contexts/theme.jsx';
 import RandomizeDice from './components/randomizeJobs.jsx';
 import Navbar from './components/Navbar.jsx';
+import ComponentTestingPage from './components/ComponentTestingPage.jsx';
 
 //Generate 50 cards for testing
 let titles = [];
@@ -59,6 +60,7 @@ ReactDOM.render(
                     <Route path="/saved" element={[<Navbar />, <Jobs />, <Footer />]} />
                     <Route path="/hire" element={[<Navbar />, <HireView />, <Footer />]} />
                     <Route path="/wallet" element={[<Navbar />, <Wallet />, <Footer />]} />
+                    <Route path="/test" element={<ComponentTestingPage/>} />
                 </Routes>
             </BrowserRouter>
         </Container>

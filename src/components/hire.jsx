@@ -2,6 +2,7 @@ import { React, Component } from 'react';
 import './hire.css';
 import Card from './cards.jsx';
 import Search from './search.jsx';
+import { ThemeContext } from '../contexts/theme';
 
 /**
  * HireView is going to be a list of suggestions to hire based on previous
@@ -22,6 +23,8 @@ export default class HireView extends Component {
         }
     }
 
+    static contextType = ThemeContext;
+
     createList(){
         for (let i = 0; i < 15; i++) {
             this.state.titles.push('test' + i);
@@ -30,10 +33,12 @@ export default class HireView extends Component {
     }
 
     render() {
+        const { isLightTheme, light, dark } = this.context;
+        const theme = isLightTheme ? light : dark;
         return (
             <div className="hireview">
-                <h1 className='heading'>How Can We Help?</h1>
-                <Search placeholder='Search'></Search>
+                <h1 className='heading' style={{ color: theme.text }}>How Can We Help?</h1>
+                <Search/>
                 <div className="hire-container">
                     <div className="left-column">
                         <Card width="200px" title="test" />

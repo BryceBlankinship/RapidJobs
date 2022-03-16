@@ -13,7 +13,8 @@ export default class ThemeContextProvider extends Component {
     state = {
         isLightTheme: window.localStorage.getItem('isLightTheme') || true,
         light: { text: '#000000', highlight: '#f3f3f3', bg: '#fff', navtext: '#666', navhighlight: '', navbg: '#f3f3f3', shadow: '0 10px 25px rgba(92, 99, 105, 0.2)' },
-        dark: { text: '#CECECE', highlight: '#519AAC', contrastbg: '#23272F', bg: '#353D4B', navtext: '#CECECE', navhighlight: '', navbg: '#353D4B', shadow: '0 10px 25px rgba(206, 206, 206, 0.1)' }
+        dark: { text: '#CECECE', highlight: '#519AAC', contrastbg: '#23272F', bg: '#353D4B', navtext: '#CECECE', navhighlight: '', navbg: '#353D4B', shadow: '0 10px 25px rgba(206, 206, 206, 0.1)', link: 
+    '#ADD8E6' }
     }
 
     toggleTheme = () => {

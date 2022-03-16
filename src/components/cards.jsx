@@ -170,9 +170,9 @@ export class WalletCard extends Component {
                                 Wallet Locked
                             </h1>
                             <p className='card-desc'>
-                                To view your wallet, <a href="/auth">Sign In</a>.
+                                To view your wallet, <a href="/auth" style={{ color: theme.link }}>Sign In</a>.
                                 <br></br>
-                                Don't have an account? <a href="/auth">Sign Up</a>.
+                                Don't have an account? <a href="/auth" style={{ color: theme.link }}>Sign Up</a>.
                             </p>
                         </div>
                     </div>

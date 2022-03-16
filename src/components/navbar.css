@@ -104,7 +104,6 @@ li input {
 .notification-title{
   text-align: center;
   margin-top: -10px;
-  margin-bottom: -10px;
 }
 
 .notification-content{
@@ -115,6 +114,7 @@ li input {
 
 .notification{
   margin-bottom: 5px;
+  margin-top: 5px;
 }
 
 .moon {

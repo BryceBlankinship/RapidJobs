@@ -14,8 +14,13 @@
     border: 1px solid #777;
     border-radius: 8px;
     padding: 20px 40px;
+    /**
+    Shadows get cut off when next card in list renders, will just disable for now
+    Honestly looks cleaner without them
+
     -webkit-box-shadow: 0 10px 25px rgba(92, 99, 105, 0.2);
     box-shadow: 0 10px 25px rgba(92, 99, 105, 0.2);
+    **/
 }
 
 .editcard {

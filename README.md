@@ -2,7 +2,11 @@
 Git commits/comments don't really allow me to be detailed in the information/code I push to the repo,
 so at the top of the readme (like right here) I am going to keep a general status update for the repo.
 
-# Latest (3/3/22):
+# Latest (5/5/22):
+- Going to forget what I said before, for now at least. Will use css modules to scope css easier sometime in the future
+- Right now, the focus is to get to a working backend in place. (Using javascript, I was going to use Golang, but that is going to take a while since I'm not really familiar with Go yet).
+
+# (3/3/22):
 - Going to start breaking the component tree into smaller more reusable components
 - May introduce styled components or a better way of bundling css to specific components to make this better
 - React documentation states that css is generally faster than css-in-js solutions, but I am going to find benchmarks on this to confirm/make a decision

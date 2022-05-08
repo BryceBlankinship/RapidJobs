@@ -31,8 +31,7 @@ export default class Navbar extends Component {
                     <li><Link className={window.sessionStorage.getItem("option") === "1" ? 'active' : ''} style={{ color: theme.navtext }} to="/saved" onClick={() => this.setNavbarState(1)}>Saved</Link></li>
                     <li><Link className={window.sessionStorage.getItem("option") === "2" ? 'active' : ''} style={{ color: theme.navtext }} to="/hire" onClick={() => this.setNavbarState(2)}>Hire</Link></li>
                     <li><Link className={window.sessionStorage.getItem("option") === "3" ? 'active' : ''} style={{ color: theme.navtext }} to="/wallet" onClick={() => this.setNavbarState(3)}>Wallet</Link></li>
-                    <li className='right'><Link className={window.sessionStorage.getItem("option") === "4" ? 'active' : ''} style={{ color: theme.navtext }} to="/auth" onClick={() => this.setNavbarState(4)}>Sign in</Link></li>
-                    <li className='right'><Link className={window.sessionStorage.getItem("option") === "5" ? 'active' : ''} style={{ color: theme.navtext }} to="/auth" onClick={() => this.setNavbarState(5)}>Sign Up</Link></li>
+                    <li className='right'><a className={window.sessionStorage.getItem("option") === "4" ? 'active' : ''} style={{ color: theme.navtext }} onClick={() => this.setNavbarState(4)}>Sign in</a></li>
                     <li className='right'>{<NotificationBell />}</li>
                     <li className='right'>{<ThemeToggler />}</li>
                 </ul>

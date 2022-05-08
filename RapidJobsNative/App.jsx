@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
+import MainButton from '../src/components/Buttons.jsx';
 
 const styles = StyleSheet.create({
   container: {
@@ -79,7 +80,9 @@ export class LoginControl extends Component {
           }}>
             <Text style={styles.smallBtnText}>Sign Up</Text>
           </Pressable>
-  
+          
+          <MainButton/>
+
           <Pressable style={styles.button} onPress={() => {
             this.handleLoginClick();
           }}>

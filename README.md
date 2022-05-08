@@ -2,7 +2,12 @@
 Git commits/comments don't really allow me to be detailed in the information/code I push to the repo,
 so at the top of the readme (like right here) I am going to keep a general status update for the repo.
 
-# Latest (5/5/22):
+# Latest (5/7/22):
+- Rudimentary REST API in place for a basic card, tonight I'll be working on getting the API secured via OAuth2, using Google as a token provider.
+- Authenticated with Google as the only option can force a very small percentage of users away, but will ensure that every user knows exactly where their data is. Having mulitple sign-in options will complicate the backend and the user experience. For now at least.
+- Hopefully next update will have a rest api working for the basic job card, and be completely secured with OAuth2. OAuth2 is a complicated protocol, and I don't understand it fully, but will be using Okta's documentation for their JWTVerifier as I can trust they know what they are talking about.
+
+# (5/5/22):
 - Going to forget what I said before, for now at least. Will use css modules to scope css easier sometime in the future
 - Right now, the focus is to get to a working backend in place. (Using javascript, I was going to use Golang, but that is going to take a while since I'm not really familiar with Go yet).
 

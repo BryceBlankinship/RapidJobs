@@ -1,8 +1,7 @@
 import { React, useState } from 'react';
 import './auth.css';
 
-
-export default function AuthToggle(props) {
+export default function AuthToggle() {
     const [auth, setAuth] = useState(false);
     const [loginDetails, setLoginDetails] = useState({
         email: '',
